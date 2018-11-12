@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  restaurant_id: 1
+  user_id: 1
+  time: 2018-11-12 10:20:59
+  note: MyString
+
+two:
+  restaurant_id: 1
+  user_id: 1
+  time: 2018-11-12 10:20:59
+  note: MyString
