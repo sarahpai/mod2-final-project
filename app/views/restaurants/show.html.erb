@@ -1,2 +1,23 @@
-<h1>Restaurants#show</h1>
-<p>Find me in app/views/restaurants/show.html.erb</p>
+<h1><%= @restaurant.name %></h1>
+
+Address:<%= @restaurant.address %><br>
+Phone:
+<%= @restaurant.phone %><br>
+Accept Credit Card:
+<%= @restaurant.credit_card ? "Yes" : "No" %><br>
+Delivery:
+<%= @restaurant.delivery ? "Yes" : "No" %><br>
+Hours:
+<br>
+Mon Closed<br>
+Tue 5:00 pm - 12:00 am<br>
+Wed 5:00 pm - 12:00 am<br>
+Thu 5:00 pm - 12:00 am<br>
+Fri 5:00 pm - 12:00 am<br>
+Sat 5:00 pm - 12:00 am<br>
+Sun 5:00 pm - 12:00 am<br>
+
+<%= link_to 'Write a Review', new_review_path %><br>
+<%= link_to 'Make a Reservation', new_reservation_path %><br>
+
+<%= link_to 'Back', restaurants_path %>
