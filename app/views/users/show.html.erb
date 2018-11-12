@@ -1,2 +1,24 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1><%= @user.first_name %>'s Account</h1>
+
+<div>
+  <h3>
+    Profile:
+    </h3>
+</div>
+
+
+Name: <%= @user.full_name %>
+<br>
+<br>
+Email: <%= @user.email %>
+<br>
+<br>
+Username: <%= @user.user_name %>
+
+<br>
+____________________________________________________
+
+
+<br>
+<br>
+<%= link_to "go to index", restaurants_path %>
