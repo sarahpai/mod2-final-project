@@ -1,2 +1,7 @@
-<h1>Reviews#index</h1>
-<p>Find me in app/views/reviews/index.html.erb</p>
+<h1>All Reviews</h1>
+
+<% @reviews.each do |review| %>
+  <h3><%= link_to review.title, review_path(review)%></h3>
+<% end %>
+
+<%= link_to 'New Review', new_review_path %>

@@ -1,2 +1,23 @@
-<h1>Reviews#new</h1>
-<p>Find me in app/views/reviews/new.html.erb</p>
+<h1>New Review</h1>
+
+<% if flash[:errors] %>
+  <% flash[:errors].each do |error| %>
+  <p><%= error %></p>
+  <% end %>
+<% end %>
+
+<%= form_for @review do |f| %>
+
+<%= f.label :title %>
+<%= f.text_field :title %><br>
+<%= f.label :comment %>
+<%= f.text_area :comment %><br>
+<%= f.label :user %>
+<%= f.collection_select :user_id, @users, :id, :name%><br>
+<%= f.label :restaurant %>
+<%= f.collection_select :restaurant_id, @restaurants, :id, :name%><br>
+<%= f.label :star %>
+<%= f.number_field :star %><br>
+<%= f.submit %>
+
+<% end %>

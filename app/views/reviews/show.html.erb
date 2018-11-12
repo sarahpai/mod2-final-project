@@ -1,2 +1,12 @@
-<h1>Reviews#show</h1>
-<p>Find me in app/views/reviews/show.html.erb</p>
+<h1>Show Review</h1>
+
+Title: <%= @review.title %><br>
+Comment: <%= @review.comment %><br>
+Restaurant: <%= link_to @review.restaurant.name, restaurant_path(@review.restaurant) %><br>
+User: <%= link_to @review.user.name, user_path(@review.user) %><br>
+Star Rating: <%= @review.star %><br>
+
+<br>
+<%= link_to 'Delete Review', review_path(@review), method: :delete %><br>
+<%= link_to 'Edit Review', edit_review_path %><br>
+<%= link_to 'Back', reviews_path %>

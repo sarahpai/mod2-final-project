@@ -17,6 +17,12 @@ Fri 5:00 pm - 12:00 am<br>
 Sat 5:00 pm - 12:00 am<br>
 Sun 5:00 pm - 12:00 am<br>
 
+Reviews:
+<% @restaurant.reviews.each do |review|  %>
+<p><%= link_to review.title, review_path(review) %></p>
+<% end %><br>
+
+<br>
 <%= link_to 'Write a Review', new_review_path %><br>
 <%= link_to 'Make a Reservation', new_reservation_path %><br>
 
