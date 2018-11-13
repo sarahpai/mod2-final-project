@@ -32,3 +32,5 @@
 
 #ignore profile picture uploads
 public/uploads
+
+.env

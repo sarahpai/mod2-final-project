@@ -4,6 +4,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.3.3'
 
+gem 'dotenv-rails', groups: [:development, :test]
+gem 'geocoder'
 gem 'carrierwave', '~> 1.0'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

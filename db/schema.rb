@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_12_204803) do
+ActiveRecord::Schema.define(version: 2018_11_13_122013) do
 
   create_table "photos", force: :cascade do |t|
     t.integer "restaurant_id"
@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(version: 2018_11_12_204803) do
     t.boolean "credit_card"
     t.boolean "delivery"
     t.string "phone"
+    t.float "longitude"
+    t.float "latitude"
   end
 
   create_table "reviews", force: :cascade do |t|

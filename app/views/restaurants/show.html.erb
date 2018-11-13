@@ -1,4 +1,7 @@
 <h1><%= @restaurant.name %></h1>
+Location <div id="map">
+  <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@restaurant.latitude}%2C#{@restaurant.longitude}&key=#{ENV["GOOGLE_MAPS_API_KEY"]}" %>
+  </div>
 
 Address:<%= @restaurant.address %><br>
 Phone:
@@ -16,6 +19,8 @@ Thu 5:00 pm - 12:00 am<br>
 Fri 5:00 pm - 12:00 am<br>
 Sat 5:00 pm - 12:00 am<br>
 Sun 5:00 pm - 12:00 am<br>
+
+<br>
 
 Reviews:
 <% @restaurant.reviews.each do |review|  %>
