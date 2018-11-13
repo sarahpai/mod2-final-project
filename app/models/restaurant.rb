@@ -7,6 +7,8 @@ class Restaurant < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode
+  
+  mount_uploader :restaurant_photo, ImageUploader
 
   def self.search(search)
     where("name LIKE ?", "%#{search}%")

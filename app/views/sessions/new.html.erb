@@ -3,16 +3,18 @@
 <h1>Log in</h1>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_tag login_path %>
+
+    <%= form_tag login_path do %>
       <font face="Times New Roman" color="black">
-      <%= text_label_tag :email %>
-      <%= text_email_field :email %>
+      <%= label_tag :email %>
+      <%= email_field_tag :email %>
 
-      <%= text_label_tag :password %>
-      <%= text_password_field :password %>
+      <%= label_tag :password %>
+      <%= password_field_tag :password %>
 
-      <%= input_type_submit "Log in" %>
+      <%= submit_tag "Log in" %>
     <% end %>
+
 
     <p>New user? <%= link_to "Sign up now!", signup_path %></p>
   </div>

@@ -1,19 +1,12 @@
 <h1><%= @restaurant.name %></h1>
-<div>
-  <%= form_for @restaurant do |f| %>
-  <%= f.label :restaurant_photo %>
-  <%= f.file_field :restaurant_photo %><br>
-  <%= f.submit %>
-  <% end %>
-</div>
-
+<%= render "form" %>
 <h3>
  Picture:
-<%= image_tag(@restaurant.restaurant_photo, alt: 'Image') if @restaurant.restaurant_photo %>
+<%= image_tag(@restaurant.restaurant_photo.to_s) if @restaurant.restaurant_photo %>
 </h3>
 
 Location <div id="map">
-  <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@restaurant.latitude}%2C#{@restaurant.longitude}&key=#{ENV["GOOGLE_MAPS_API_KEY"]}" %>
+  <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=17&markers=#{@restaurant.latitude}%2C#{@restaurant.longitude}&key=#{ENV["GOOGLE_MAPS_API_KEY"]}" %>
   </div>
 Address:<%= @restaurant.address %><br>
 Phone:
@@ -42,10 +35,4 @@ Reviews:
 <br>
 <%= link_to 'Write a Review', new_review_path %><br>
 <%= link_to 'Make a Reservation', new_reservation_path %><br>
-<div>
-  <%= form_for @restaurant do |f| %>
-    <%= f.label :profile_picture %>
-    <%= f.file_field :profile_picture %>
-  <% end %>
-</div>
 <%= link_to 'Back', restaurants_path %>
