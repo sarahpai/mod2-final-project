@@ -3,28 +3,40 @@
 <div>
   <h3>
     Profile:
-    </h3>
+  </h3>
 </div>
 
-
-Name: <%= @user.full_name %>
+Name:
+<%= @user.full_name %>
 <br>
 <br>
-Email: <%= @user.email %>
+Email:
+<%= @user.email %>
 <br>
 <br>
-Username: <%= @user.user_name %>
+Username:
+<%= @user.user_name %>
 <br>
 
 <br>
 
 Reviews:
 <% @user.reviews.each do |review|  %>
-<p><%= link_to review.title, review_path(review) %></p>
+  <p><%= link_to review.title, review_path(review) %></p>
 <% end %><br>
-____________________________________________________
 
+Reservations:
+<% @user.reservations.each do |reservation|  %>
+  <li><%= reservation.time %>
+    at
+    <%= link_to reservation.restaurant.name, restaurant_path(reservation.restaurant)%>
+    for
+    <%= reservation.party_size %>
+    people
+  <% end %><br>
 
-<br>
-<br>
-<%= link_to "go to index", restaurants_path %>
+  ____________________________________________________
+
+  <br>
+  <br>
+  <%= link_to "go to index", restaurants_path %>

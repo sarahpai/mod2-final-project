@@ -24,6 +24,12 @@ class RestaurantsController < ApplicationController
     end
   end
 
+  def destroy
+    find_restaurant
+    @restaurant.destroy
+    redirect_to restaurants_path
+  end
+
 
   private
   def restaurant_params
