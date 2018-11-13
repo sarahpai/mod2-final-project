@@ -8,18 +8,6 @@ class Restaurant < ApplicationRecord
   geocoded_by :address
   after_validation :geocode
 
-  def self.search(search)
-        if search
-            power = Power.find_by(name: search)
-            if power
-                where(power_id: power)
-            else
-                Restaurant.all
-            end
-        else
-            Restaurant.all
-        end
-    end
-
+  
 
 end

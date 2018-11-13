@@ -1,42 +1,50 @@
 <h1><%= @user.first_name %>'s Account</h1>
 
-<div>
-  <h3>
-    Profile:
-  </h3>
-</div>
+    <h3>
+    Profile picture:
+    <%= image_tag(@user.profile_picture, alt: 'Image') if @user.profile_picture %>
+    </h3>
 
-Name:
-<%= @user.full_name %>
-<br>
-<br>
-Email:
-<%= @user.email %>
-<br>
-<br>
-Username:
-<%= @user.user_name %>
-<br>
+    <div>
+      <%= form_for @user do |f| %>
+        <%= f.label :profile_picture %>
+        <%= f.file_field :profile_picture %>
+      <% end %>
+    </div>
 
-<br>
+  Name:
+  <%= @user.full_name %>
+  <br>
+  <br>
+  Email:
+  <%= @user.email %>
+  <br>
+  <br>
+  Username:
+  <%= @user.user_name %>
+  <br>
 
-Reviews:
-<% @user.reviews.each do |review|  %>
-  <p><%= link_to review.title, review_path(review) %></p>
-<% end %><br>
+  <br>
 
-Reservations:
-<% @user.reservations.each do |reservation|  %>
-  <li><%= reservation.time %>
-    at
-    <%= link_to reservation.restaurant.name, restaurant_path(reservation.restaurant)%>
-    for
-    <%= reservation.party_size %>
-    people
+  Reviews:
+  <% @user.reviews.each do |review|  %>
+    <p><%= link_to review.title, review_path(review) %></p>
   <% end %><br>
 
-  ____________________________________________________
+  Reservations:
+  <% @user.reservations.each do |reservation|  %>
+    <li><%= reservation.time %>
+      at
+      <%= link_to reservation.restaurant.name, restaurant_path(reservation.restaurant)%>
+      for
+      <%= reservation.party_size %>
+      people
+    <% end %><br>
 
-  <br>
-  <br>
-  <%= link_to "go to index", restaurants_path %>
+    ____________________________________________________
+
+    <br>
+    <br>
+    <%= link_to "go to index", restaurants_path %>
+    <br>
+    <%= link_to "edit profile", edit_user_path(@user) %>

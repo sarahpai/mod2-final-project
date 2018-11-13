@@ -1,8 +1,20 @@
 <h1><%= @restaurant.name %></h1>
+<div>
+  <%= form_for @restaurant do |f| %>
+  <%= f.label :restaurant_photo %>
+  <%= f.file_field :restaurant_photo %><br>
+  <%= f.submit %>
+  <% end %>
+</div>
+
+<h3>
+ Picture:
+<%= image_tag(@restaurant.restaurant_photo, alt: 'Image') if @restaurant.restaurant_photo %>
+</h3>
+
 Location <div id="map">
   <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@restaurant.latitude}%2C#{@restaurant.longitude}&key=#{ENV["GOOGLE_MAPS_API_KEY"]}" %>
   </div>
-
 Address:<%= @restaurant.address %><br>
 Phone:
 <%= @restaurant.phone %><br>

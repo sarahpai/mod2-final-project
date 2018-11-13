@@ -16,3 +16,6 @@ User.create(first_name:"yu", last_name:"li", email:"222@gmail.com", password:"12
 
 Review.create(restaurant_id:1, user_id:1, title:"chipotle is goood", comment:"sooo goood", star:"5")
 Review.create(restaurant_id:2, user_id:2, title:"chickfila is goood", comment:"sooo goood", star:"5")
+
+# 
+# Photo.create(restaurant_id: 1, user_id: 1)
