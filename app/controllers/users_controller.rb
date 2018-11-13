@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :find_user, to: [:show, :edit, :create, :update, :destroy]
-
+  skip_before_action :authorized, only: [:new, :create]
   def index
     @users = User.all
   end
@@ -15,14 +15,12 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
-    if @user.save
-      flash[:notice] = "You have successfully signed up."
-      flash[:color] = "valid"
+    if @user.valid?
+      login_user(@user)
+      redirect_to @user
     else
-      flash[:notice] = "Form is invalid"
-      flash[:color]= "invalid"
-    end
     render "new"
+    end
   end
 
   def edit

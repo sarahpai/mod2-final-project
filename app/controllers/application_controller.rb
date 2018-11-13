@@ -1,15 +1,23 @@
 class ApplicationController < ActionController::Base
-#   def location
-#   if params[:restaurant].blank?
-#     if Rails.env.test? || Rails.env.development?
-#       @location ||= Geocoder.search("50.78.167.161").first
-#     else
-#       @location ||= request.location
-#     end
-#   else
-#     params[:restaurant].each {|l| l = l.to_i } if params[:restaurant].is_a? Array
-#     @location ||= Geocoder.search(params[:restaurant]).first
-#     @location
-#   end
-# end
+    before_action :authorized
+    helper_method :current_user, :logged_in?
+
+    def current_user
+        User.find_by(id: session[:user_id])
+    end
+
+    def login_user(user)
+        session[:user_id] = user.id
+    end
+
+    def logged_in?
+        !!current_user
+    end
+
+    def authorized
+        unless logged_in?
+            flash[:notice] = 'You must be logged in to see this page'
+            redirect_to login_path
+        end
+    end
 end

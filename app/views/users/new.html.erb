@@ -1,5 +1,7 @@
-<% @page_title = "UserAuth | Signup" %>
-<div class="Sign_Form">
-  <h1>Sign Up</h1>
 
-  <%= render "form", user: @user %>
+<%= form_for(:session, :url => {:controller => 'users', :action => 'create'}) do |f| %>
+<p> Username:<br> <%= f.text_field :user_name%> </p>
+<p> Email:<br> <%= f.text_field :email%> </p>
+<p> Password:<br> <%= f.password_field :password%></p>
+<%= f.submit 'Sign Up' %>
+<% end %>
