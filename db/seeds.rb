@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
 Restaurant.create(name:"chipotle", address:"11 Broadway, New York, NY 10004", phone:"111", delivery:true, credit_card:true, longitude: nil, latitude: nil)
 Restaurant.create(name:"chickfila", address:"22 Broadway, New York, NY 10004", phone:"333", delivery:true, credit_card:true, longitude: nil, latitude: nil)
 
@@ -17,5 +18,5 @@ User.create(first_name:"yu", last_name:"li", email:"222@gmail.com", password:"12
 Review.create(restaurant_id:1, user_id:1, title:"chipotle is goood", comment:"sooo goood", star:"5")
 Review.create(restaurant_id:2, user_id:2, title:"chickfila is goood", comment:"sooo goood", star:"5")
 
-# 
+#
 # Photo.create(restaurant_id: 1, user_id: 1)

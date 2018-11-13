@@ -3,15 +3,15 @@
 <h1>Log in</h1>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for(:session, url: login_path) do |f| %>
+    <%= form_tag login_path %>
       <font face="Times New Roman" color="black">
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
+      <%= text_label_tag :email %>
+      <%= text_email_field :email %>
 
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
+      <%= text_label_tag :password %>
+      <%= text_password_field :password %>
 
-      <%= f.submit "Log in", class: "btn btn-primary" %>
+      <%= input_type_submit "Log in" %>
     <% end %>
 
     <p>New user? <%= link_to "Sign up now!", signup_path %></p>
