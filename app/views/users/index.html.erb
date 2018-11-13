@@ -1,4 +1,4 @@
 <h1>Users index</h1>
 <% @users.each do |user| %>
-Username: <%= user.user_name %>
+<p>Username: <%= link_to user.user_name, user %></p>
 <% end %>

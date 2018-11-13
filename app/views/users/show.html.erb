@@ -17,6 +17,11 @@ Username: <%= @user.user_name %>
 <br>
 
 <br>
+
+Reviews:
+<% @user.reviews.each do |review|  %>
+<p><%= link_to review.title, review_path(review) %></p>
+<% end %><br>
 ____________________________________________________
 
 
