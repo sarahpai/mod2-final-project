@@ -34,3 +34,4 @@
 public/uploads
 
 .env
+/db/schema.rb
