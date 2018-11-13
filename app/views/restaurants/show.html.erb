@@ -30,5 +30,10 @@ Reviews:
 <br>
 <%= link_to 'Write a Review', new_review_path %><br>
 <%= link_to 'Make a Reservation', new_reservation_path %><br>
-
+<div>
+  <%= form_for @restaurant do |f| %>
+    <%= f.label :profile_picture %>
+    <%= f.file_field :profile_picture %>
+  <% end %>
+</div>
 <%= link_to 'Back', restaurants_path %>

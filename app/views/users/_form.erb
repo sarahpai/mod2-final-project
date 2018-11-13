@@ -1,14 +1,9 @@
-<%= form_for user do |f| %>
+<%= form_for @user do |f| %>
   <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.label :full_name %>
+    <%= f.text_field :full_name %>
   </div>
-
-  <div>
-    <%= f.label :body %>
-    <%= f.text_area :body %>
-  </div>
-
+  <br>
   <div>
     <%= f.label :profile_picture %>
     <%= f.file_field :profile_picture %>

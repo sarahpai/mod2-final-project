@@ -1,9 +1,16 @@
-<h1><%= @user.first_name %>'s Account</h1>
+<h1>'s Account</h1>
 
 <div>
   <h3>
-    Profile:
+    Profile picture:  <%= image_tag(@user.profile_picture, alt: 'Image') if @user.profile_picture %>
     </h3>
+    <div>
+      <%= form_for @user do |f| %>
+        <%= f.label :profile_picture %>
+        <%= f.file_field :profile_picture %>
+      <% end %>
+    </div>
+
 </div>
 
 
@@ -28,3 +35,5 @@ ____________________________________________________
 <br>
 <br>
 <%= link_to "go to index", restaurants_path %>
+<br>
+<%= link_to "edit profile", edit_user_path(@user) %>

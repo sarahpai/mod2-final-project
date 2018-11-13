@@ -1,8 +1,7 @@
-
 <%= form_for(:session, :url => {:controller => 'users', :action => 'create'}) do |f| %>
 <p> Username:<br> <%= f.text_field :user_name%> </p>
 <p> Email:<br> <%= f.text_field :email%> </p>
-<p> Password:<br> <%= f.password_field :password%></p>
+<p> Password:<br> <%= f.password_field :password %></p>
 <p> Password Confirmation:<br> <%= f.password_field :password_confirmation%> </p>
 <%= f.submit :Signup %>
 <% end %>
