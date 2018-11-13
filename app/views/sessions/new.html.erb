@@ -1,19 +1,14 @@
-<% provide(:title, "Log in") %>
-<font face="Playfair Display" color="black">
-<h1>Log in</h1>
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_tag login_path %>
-      <font face="Times New Roman" color="black">
-      <%= text_label_tag :email %>
-      <%= text_email_field :email %>
+<h1>Login</h1>
 
-      <%= text_label_tag :password %>
-      <%= text_password_field :password %>
+<h2><%= flash[:notice] %></h2>
 
-      <%= input_type_submit "Log in" %>
-    <% end %>
-
-    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
-  </div>
-</div>
+<%= form_tag login_path do %>
+  <%= label_tag :user_name %>
+  <%= text_field_tag :user_name %>
+  <br>
+  <%= label_tag :password %>
+  <%= password_field_tag :password %>
+  <br>
+  <%= submit_tag 'Login' %>
+  <%= link_to 'Sign Up', signup_path %>
+<% end %>

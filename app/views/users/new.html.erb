@@ -1,7 +1,24 @@
+<h1>SIGN UP</h1>
 
-<%= form_for(:session, :url => {:controller => 'users', :action => 'create'}) do |f| %>
-<p> Username:<br> <%= f.text_field :user_name%> </p>
-<p> Email:<br> <%= f.text_field :email%> </p>
-<p> Password:<br> <%= f.password_field :password%></p>
-<%= f.submit 'Sign Up' %>
+<%= form_for @user do |f| %>
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+  <br>
+  <%= f.label :password %>
+  <%= f.text_field :password %>
+  <br>
+  <%= f.label :user_name %>
+  <%= f.text_field :user_name %>
+  <br>
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %>
+  <br>
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %>
+  <br>
+  <%= f.label :profile_picture %>
+  <%= f.text_field :profile_picture %>
+  <br>
+
+  <%= f.submit %>
 <% end %>

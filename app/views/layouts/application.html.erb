@@ -10,12 +10,18 @@
   </head>
 
   <body>
+    <nav>
     <% if logged_in? %>
       <%= button_to('Logout', logout_path, {method: :delete}) %>
     <% else %>
       <%= button_to('Login', login_path, {method: :get}) %>
     <% end %>
-    
+    <%= link_to 'All Restaurants', restaurants_path %>
+
+
+
+    </nav>
+
     <%= yield %>
   </body>
 </html>
