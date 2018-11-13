@@ -1,9 +1,45 @@
 <h1><%= @user.first_name %>'s Account</h1>
-
     <h3>
     Profile picture:
     <%= image_tag(@user.profile_picture, alt: 'Image') if @user.profile_picture %>
     </h3>
+
+<h2><%= flash[:notice] %></h2>
+
+<div>
+  <h3>
+    Profile:
+  </h3>
+</div>
+
+Name:
+<%= @user.full_name %>
+<br>
+<br>
+Email:
+<%= @user.email %>
+<br>
+<br>
+Username:
+<%= @user.user_name %>
+<br>
+
+<br>
+
+Reviews:
+<% @user.reviews.each do |review|  %>
+  <p><%= link_to review.title, review_path(review) %></p>
+<% end %><br>
+
+Reservations:
+<% @user.reservations.each do |reservation|  %>
+  <li><%= reservation.time %>
+    at
+    <%= link_to reservation.restaurant.name, restaurant_path(reservation.restaurant)%>
+    for
+    <%= reservation.party_size %>
+    people
+  <% end %><br>
 
     <div>
       <%= form_for @user do |f| %>

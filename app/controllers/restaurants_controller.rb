@@ -1,5 +1,7 @@
 class RestaurantsController < ApplicationController
   before_action :find_restaurant, to: [:show, :destroy, :edit, :update]
+  skip_before_action :authorized, only: [:index, :show]
+  
   def index
     if params[:search]
       @restaurants = Restaurant.search(params[:search])
