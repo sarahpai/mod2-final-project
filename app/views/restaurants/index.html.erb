@@ -12,8 +12,12 @@
   Address:<%= restaurant.address %><br>
   Phone:
   <%= restaurant.phone %><br>
-  Average Review:
-  <%= link_to 'Delete Restaurant', restaurant_path(restaurant), method: :delete %>
+  Total Reviews:
+  <%= restaurant.total_reviews %><br>
+  Average Star Rating:
+  <%= restaurant.average_star %>
+  <br>
+  <% link_to 'Delete Restaurant', restaurant_path(restaurant), method: :delete %>
   <% end %>
 <br>
 <br>

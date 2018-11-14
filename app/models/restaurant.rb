@@ -16,5 +16,20 @@ class Restaurant < ApplicationRecord
     where("name LIKE ?", "%#{search}%")
   end
 
+  def total_reviews
+    total = reviews.count
+
+    return "No Reviews Yet" if total == 0
+    return "1 Review" if total == 1
+    return "#{total} Reviews" if total > 1
+  end
+
+  def average_star
+    return nil if self.reviews.empty?
+    sum = 0
+    self.reviews.each { |review| sum += review.star.to_f }
+
+    (sum.to_f / reviews.size.to_f).round
+  end
 
 end

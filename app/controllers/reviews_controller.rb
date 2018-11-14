@@ -22,7 +22,7 @@ before_action :find_review, only: [:edit, :update, :show, :destroy]
     @restaurant = Restaurant.find_by(id:params[:id])
     @user = User.find_by(id:params[:id])
     if @review.valid?
-      redirect_to restaurant_path(@restaurant)
+      redirect_to restaurant_path(@review.restaurant)
     else
       flash[:errors] = @review.errors.full_messages
       redirect_to new_review_path
@@ -31,24 +31,25 @@ before_action :find_review, only: [:edit, :update, :show, :destroy]
 
   def edit
     @restaurants = Restaurant.all
+    @restaurant = Restaurant.find_by(id: @review.restaurant_id)
     @users = User.all
   end
 
   def update
     @review.update(review_params)
-    @restaurant = Restaurant.find_by(id:params[:id])
+    @restaurant = Restaurant.find_by(id: @review.restaurant_id)
     @user = User.find_by(id:params[:id])
     if @review.valid?
-      redirect_to review_path(@review)
+      redirect_to restaurant_path(@restaurant)
     else
       flash[:errors] = @review.errors.full_messages
-      redirect_to new_review_path
+      redirect_to edit_review_path
     end
   end
 
   def destroy
     @review.destroy
-    redirect_to reviews_path
+    redirect_to user_path(current_user.id)
   end
 
   private
