@@ -27,10 +27,10 @@
     <nav>
       <% if logged_in? %>
         <%= link_to('Logout', logout_path, {method: :delete}) %>
+        <%= link_to 'My Profile', user_path(session[:user_id]) %>
       <% else %>
         <%= link_to('Login', login_path, {method: :get}) %>
       <% end %>
-      <%= link_to 'My Profile', user_path(current_user.id) %>
       <%= link_to 'All Restaurants', restaurants_path %>
 
     </nav>
