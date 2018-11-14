@@ -5,14 +5,12 @@
 <% end %>
 
 <%= form_for @reservation do |f| %>
-<%= f.hidden_field :restaurant_id, :value => flash[:restaurant_id] %>
+<%= f.hidden_field :restaurant_id, :value => @restaurant.id %>
 <%= f.hidden_field :user_id, :value => current_user.id %>
 <%= f.label :party_size %>
 <%= f.number_field :party_size %><br>
 <%= f.label :date %>
-<input type="date" id="date" name="date"
-       value="2018-11-13"
-       min="2018-11-13" max="2018-12-31"><br>
+<%= f.date_field :date %>
 <%= f.label :time %>
 <%= f.time_select :time,
   :combined => true,

@@ -17,19 +17,24 @@ Username:
 
 Reviews:
 <% @user.reviews.each do |review|  %>
-  <p><%= link_to review.title, review_path(review) %></p>
+  <p><%= link_to review.title, restaurant_path(review.restaurant) %> for <%= review.restaurant.name %></p>
+  <%= link_to 'Edit', edit_review_path(review) %>
+  <%= link_to 'Delete', review_path(review), method: :delete, data: {confirm: "Are you sure you want to delete this review?"} %>
 <% end %>
 <br>
 <br>
 
 Reservations:
 <% @user.reservations.each do |reservation|  %>
-  <li><%= reservation.time %>
+  <li><%= reservation.split_date %> @ <%= reservation.split_time %>
     at
     <%= link_to reservation.restaurant.name, restaurant_path(reservation.restaurant)%>
     for
     <%= reservation.party_size %>
     people
+    <br>
+    <%= link_to 'Edit', edit_reservation_path(reservation) %>
+    <%= link_to 'Delete', reservation_path(reservation), method: :delete, data: {confirm: "Are you sure you want to delete this reservation?"} %>
   <% end %>
   <br>
   <br>

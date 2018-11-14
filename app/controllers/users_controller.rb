@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id:params[:id])
+    @restaurant = Restaurant.find_by(id:params[:id])
   end
 
   def new
