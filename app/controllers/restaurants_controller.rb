@@ -13,7 +13,7 @@ class RestaurantsController < ApplicationController
 
   def show
     @review = Review.find_by(id:params[:id])
-
+    flash[:restaurant_id] = @restaurant.id
   end
 
   def new

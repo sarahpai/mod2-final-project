@@ -1,16 +1,3 @@
-<h1>New Restaurant</h1>
-<%= form_for @restaurant do |f| %>
+<h2>New Restaurant</h2>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %><br>
-  <%= f.label :address %>
-  <%= f.text_field :address %><br>
-  <%= f.label :phone %>
-  <%= f.text_field :phone %><br>
-  <%= f.label :credit_card %>
-  <%= f.check_box :credit_card %><br>
-  <%= f.label :delivery %>
-  <%= f.check_box :delivery %><br>
-  <%= f.submit %>
-
-<% end %>
+<%= render "form", restaurant: @restaurant %>

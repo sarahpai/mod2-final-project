@@ -1,4 +1,4 @@
-<h1><%= @user.first_name %>'s Account</h1>
+
     <h3>
 
      <%# <%= image_tag(@user.profile_picture, alt: 'Image') if @user.profile_picture %>
@@ -6,30 +6,21 @@
 
 <h2><%= flash[:notice] %></h2>
 
-<div>
-  <h3>
-    Profile:
-  </h3>
-</div>
-
 Name:
-<%= @user.full_name %>
-<br>
-<br>
-Email:
-<%= @user.email %>
-<br>
-<br>
-Username:
-<%= @user.user_name %>
-<br>
+<%= @user.full_name %><br>
 
-<br>
+Email:
+<%= @user.email %><br>
+
+Username:
+<%= @user.user_name %><br>
 
 Reviews:
 <% @user.reviews.each do |review|  %>
   <p><%= link_to review.title, review_path(review) %></p>
-<% end %><br>
+<% end %>
+<br>
+<br>
 
 Reservations:
 <% @user.reservations.each do |reservation|  %>
@@ -39,7 +30,9 @@ Reservations:
     for
     <%= reservation.party_size %>
     people
-  <% end %><br>
+  <% end %>
+  <br>
+  <br>
 
     <div>
       <%= form_for @user do |f| %>
@@ -48,10 +41,4 @@ Reservations:
       <% end %>
     </div>
 
-    ____________________________________________________
-
-    <br>
-    <br>
-    <%= link_to "go to index", restaurants_path %>
-    <br>
     <%= link_to "edit profile", edit_user_path(@user) %>

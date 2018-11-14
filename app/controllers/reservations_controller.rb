@@ -22,7 +22,7 @@ before_action :find_reservation, only: [:edit, :update, :show, :destroy]
     @restaurant = Restaurant.find_by(id:params[:id])
     @user = User.find_by(id:params[:id])
     if @reservation.valid?
-      redirect_to reservations_path
+      redirect_to user_path(current_user.id)
     else
       flash[:errors] = @reservation.errors.full_messages
       redirect_to new_reservation_path
