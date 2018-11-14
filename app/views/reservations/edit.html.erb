@@ -1,33 +1,3 @@
-<h1>Edit Reservation</h1>
+<h2>Edit Reservation</h2>
 
-<% if flash[:errors] %>
-  <% flash[:errors].each do |error| %>
-  <p><%= error %></p>
-  <% end %>
-<% end %>
-
-<%= form_for @reservation do |f| %>
-
-<%= f.label :user %>
-<%= f.collection_select :user_id, @users, :id, :first_name%><br>
-<%= f.label :restaurant %>
-<%= f.collection_select :restaurant_id, @restaurants, :id, :name%><br>
-<%= f.label :party_size %>
-<%= f.number_field :party_size %><br>
-<%= f.label :date %>
-<%= f.date_select :date %><br>
-<%= f.label :time %>
-<%= f.time_select :time,
-  :combined => true,
-  :default => Time.now.change(:hour => 11, :min => 30),
-  :minute_interval => 15,
-  :time_separator => "",
-  :start_hour => 17,
-  :start_minute => 30,
-  :end_hour => 22,
-  :end_minute => 30,
-  :ampm => true
-%><br>
-<%= f.submit %>
-
-<% end %>
+<%= render "form", restaurant: @restaurant %>

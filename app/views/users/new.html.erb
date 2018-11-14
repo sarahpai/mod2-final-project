@@ -1,24 +1,3 @@
-<h1>SIGN UP</h1>
+<h2>SIGN UP</h2>
 
-<%= form_for @user do |f| %>
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-  <br>
-  <%= f.label :password %>
-  <%= f.text_field :password %>
-  <br>
-  <%= f.label :user_name %>
-  <%= f.text_field :user_name %>
-  <br>
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %>
-  <br>
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %>
-  <br>
-  <%= f.label :profile_picture %>
-  <%= f.text_field :profile_picture %>
-  <br>
-
-  <%= f.submit %>
-<% end %>
+<%= render "form", user: @user %>

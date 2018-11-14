@@ -1,0 +1,42 @@
+<% if flash[:errors] %>
+  <% flash[:errors].each do |error| %>
+    <p><%= error %></p>
+  <% end %>
+<% end %>
+
+<%= form_for @review do |f| %>
+<%= f.label :title %><br>
+<%= f.text_field :title %><br>
+<%= f.label :comment %><br>
+<%= f.text_area :comment %><br>
+<%= f.hidden_field :restaurant_id, :value => flash[:restaurant_id] %>
+<%= f.hidden_field :user_id, :value => current_user.id %>
+        <% f.label :star, 1 %>
+          <span class="glyphicon glyphicon-star"></span>
+          <%= f.radio_button :star, 1 %>
+          <span class="glyphicon glyphicon-star"></span>
+          <span class="glyphicon glyphicon-star"></span>
+          <% f.label :star, 2 %>
+            <%= f.radio_button :star, 2 %>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <% f.label :star, 3 %>
+              <%= f.radio_button :star, 3 %>
+              <span class="glyphicon glyphicon-star"></span>
+              <span class="glyphicon glyphicon-star"></span>
+              <span class="glyphicon glyphicon-star"></span>
+              <span class="glyphicon glyphicon-star"></span>
+              <% f.label :star, 4 %>
+                <%= f.radio_button :star, 4 %>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <% f.label :star, 5 %>
+                  <%= f.radio_button :star, 5 %><br>
+
+                  <%= f.submit %>
+
+                <% end %>

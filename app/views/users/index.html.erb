@@ -1,4 +1,4 @@
-<h1>Users index</h1>
+<h2>Users index</h2>
 <% @users.each do |user| %>
 <p>Username: <%= link_to user.user_name, user %></p>
 <%= link_to 'Delete User', user_path(user), method: :delete %>

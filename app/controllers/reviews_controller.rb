@@ -13,6 +13,7 @@ before_action :find_review, only: [:edit, :update, :show, :destroy]
   def new
     @review = Review.new
     @restaurants = Restaurant.all
+    @restaurant = Restaurant.find_by(id:params[:id])
     @users = User.all
   end
 
@@ -21,7 +22,7 @@ before_action :find_review, only: [:edit, :update, :show, :destroy]
     @restaurant = Restaurant.find_by(id:params[:id])
     @user = User.find_by(id:params[:id])
     if @review.valid?
-      redirect_to review_path(@review)
+      redirect_to restaurant_path(@restaurant)
     else
       flash[:errors] = @review.errors.full_messages
       redirect_to new_review_path
