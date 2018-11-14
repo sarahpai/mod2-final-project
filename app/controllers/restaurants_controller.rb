@@ -34,7 +34,12 @@ class RestaurantsController < ApplicationController
   end
 
   def update
-    @restaurant.update(restaurant_params)
+    if restaurant_params[:restaurant_photo]
+      restaurant_params[:restaurant_photo] = restaurant_params[:restaurant_photo].original_filename
+    end
+
+    @restaurant.update_attributes(restaurant_params)
+  
     redirect_to restaurant_path(@restaurant)
   end
 
@@ -51,5 +56,9 @@ class RestaurantsController < ApplicationController
 
   def find_restaurant
     @restaurant = Restaurant.find_by(id: params[:id])
+  end
+
+  def update_rest_photo
+    update_photo = params.require(:restaurant).permit(:restaurant_photo).original_filename
   end
 end
