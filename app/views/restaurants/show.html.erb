@@ -2,13 +2,18 @@
 <%= render "form" %>
 <h3>
  Picture:
+<%# <%= @restaurant.restaurant_photo.to_s %>
 <%= image_tag(@restaurant.restaurant_photo.to_s) if @restaurant.restaurant_photo %>
 </h3>
 
-Location <div id="map">
-  <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=17&markers=#{@restaurant.latitude}%2C#{@restaurant.longitude}&key=#{ENV["GOOGLE_MAPS_API_KEY"]}" %>
-  </div>
-Address:<%= @restaurant.address %><br>
+<p> Location: </p>
+  <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&zoom=17&markers=#{@restaurant.latitude}%2C#{@restaurant.longitude}&key=#{ENV["GOOGLE_MAPS_API_KEY"]}" %>
+
+<br>
+<p> Address: <%= @restaurant.address %> </p>
+
+
+<br>
 Phone:
 <%= @restaurant.phone %><br>
 Accept Credit Card:
