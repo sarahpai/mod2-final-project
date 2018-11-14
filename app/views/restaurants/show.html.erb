@@ -37,6 +37,6 @@ Reviews:
 <% end %><br>
 
 <br>
-<%= link_to 'Write a Review', new_review_path %><br>
-<%= link_to 'Make a Reservation', new_reservation_path %><br>
+<%= link_to 'Write a Review', new_review_path(@restaurant.id) %><br>
+<%= link_to 'Make a Reservation', new_reservation_path(@restaurant.id) %><br>
 <%= link_to 'Back', restaurants_path %>

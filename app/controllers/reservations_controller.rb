@@ -3,7 +3,6 @@ before_action :find_reservation, only: [:edit, :update, :show, :destroy]
 
   def index
     @reservations = Reservation.all
-    @@restaurant = Restaurant.find_by(id:params[:id])
   end
 
   def show
@@ -13,13 +12,12 @@ before_action :find_reservation, only: [:edit, :update, :show, :destroy]
 
   def new
     @reservation = Reservation.new
-    @restaurants = Restaurant.all
-    @users = User.all
+    @restaurant = Restaurant.find_by(id: params[:id])
   end
 
   def create
     @reservation = Reservation.create(reservation_params)
-    @restaurant = Restaurant.find_by(id:params[:id])
+    @restaurant = Restaurant.find_by(id: @reservation.restaurant_id)
     @user = User.find_by(id:params[:id])
     if @reservation.valid?
       redirect_to user_path(current_user.id)
