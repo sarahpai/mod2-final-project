@@ -1,3 +1,49 @@
-<h2>Edit Reservation</h2>
+<div class="reservation_back_image">
+  <div class="ui grid">
+    <div class="twelve wide column">
+    </div>
+    <div class="twelve wide column">
+    </div>
+    <div class="four wide column">
+      <div class="reservation_form">
+      <h2 class="ui teal image header">
+        <div class="content">
+          Edit Your Reservation
+        </div>
+      </h2>
+      <% if flash[:errors] %>
+        <% flash[:errors].each do |error| %>
+          <p><%= error %></p>
+        <% end %>
+      <% end %>
+      <%= form_for @reservation, :html => {:class => 'ui form'} do |f| %>
+      <div class="ui stacked element">
+        <%= f.hidden_field :restaurant_id, :value => @restaurant.id %>
+        <%= f.hidden_field :user_id, :value => current_user.id %>
+        <div class="field">
+          <%= f.label :party_size %>
+          <%= f.number_field :party_size %>
+        </div>
+        <div class="field">
+          <%= f.label :date %>
+          <%= f.date_field :date %>
+        </div>
+        <div class="field">
+          <%= f.label :time %>
+          <%= f.time_select :time, :combined => true, :default => Time.now.change(:hour => 11, :min => 30), :minute_interval => 15, :time_separator => "", :start_hour => 17, :start_minute => 30, :end_hour => 22, :end_minute => 30, :ampm => true %>
+        </div>
+        <div class="field">
+          <%= f.label :message %>
+          <%= f.text_field :message %>
+        </div>
+      </div>
+      <br>
+      <%= f.submit 'Submit', :class => 'ui fluid large teal submit button' %>
+      <br>
+    <% end %>
+<div class="one wide column"></div>
+  </div>
+</div>
+</div>
 
-<%= render "form", restaurant: @restaurant %>
+<!-- <p><%= flash[:notice] %></p> -->

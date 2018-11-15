@@ -1,9 +1,6 @@
 <h2>All Restaurants</h2>
 
-<%= form_tag restaurants_path, method: :get, class: "ui search" do %>
-  <%= text_field_tag :search, params[:search], placeholder: "Search Restaurant", class: "prompt" %>
-  <%= submit_tag "Search", class: "ui button" %>
-<% end %>
+
 
 <div>
 <% @restaurants.each do |restaurant| %>

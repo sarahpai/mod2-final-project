@@ -1,3 +1,16 @@
 // Place all the styles related to the reviews controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.review_back_image {
+  background-image: image-url("review/fruit.jpg");
+  opacity: 0.8;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.review_form {
+
+  margin-top: 30px;
+}

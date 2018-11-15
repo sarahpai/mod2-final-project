@@ -18,12 +18,11 @@ before_action :find_reservation, only: [:edit, :update, :show, :destroy]
   def create
     @reservation = Reservation.create(reservation_params)
     @restaurant = Restaurant.find_by(id: @reservation.restaurant_id)
-    @user = User.find_by(id:params[:id])
     if @reservation.valid?
       redirect_to user_path(current_user.id)
     else
       flash[:errors] = @reservation.errors.full_messages
-      redirect_to new_reservation_path
+      redirect_to new_reservation_path(@restaurant.id)
     end
   end
 
@@ -35,7 +34,6 @@ before_action :find_reservation, only: [:edit, :update, :show, :destroy]
   def update
     @reservation.update(reservation_params)
     @restaurant = Restaurant.find_by(id: @reservation.restaurant_id)
-    @user = User.find_by(id:params[:id])
     if @reservation.valid?
       redirect_to user_path(current_user)
     else

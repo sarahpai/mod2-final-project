@@ -1,3 +1,59 @@
-<h2>SIGN UP</h2>
+<div class="user_back_image">
 
-<%= render "form", user: @user %>
+<div class="ui grid">
+  <div class="four wide column"></div>
+  <div class="signup_form">
+    <div class="signup_icon">
+    <h2 class="ui teal image header">
+      <div class="content">
+        <br>
+        Sign Up
+      </div>
+    </h2>
+    </div>
+    <br>
+
+  <div class="twelve wide column">
+    <% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+      <p><%= error %></p>
+    <% end %>
+    <% end %>
+    <%= form_for @user, :html => {:class => 'ui form'} do |f| %>
+    <div class="ui stacked element">
+      <div class="field">
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+      </div>
+      <div class="field">
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+      </div>
+      <div class="field">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation %>
+      </div>
+      <div class="field">
+      <%= f.label 'Username' %>
+      <%= f.text_field :user_name %>
+      <div class="field">
+      </div>
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name %>
+      <div class="field">
+      </div>
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name %>
+      </div>
+      <%= f.submit 'Sign up', :class => 'ui fluid large teal submit button' %>
+    </div>
+  <% end %>
+
+</div>
+  </div>
+<div class="four wide column"></div>
+
+</div>
+
+
+</div>

@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+
+body > .grid {
+  height: 100%;
+}
+
+.image {
+  margin-top: -40px;
+}
+
+.column {
+  max-width: 450px;
+}
+
+#login-form {
+  top: 10px;
+}
