@@ -1,0 +1,16 @@
+<h1>Edit the student</h1>
+
+<%= form_for @student do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<br>
+<%= f.label :pass %>
+<%= f.check_box :pass %>
+<br>
+<%= f.label :test_id %>
+<%= f.collection_select :test_id, @tests, :id, :name %>
+<br>
+<%= link_to "go to index", students_path %>
+<br>
+  <%= f.submit %>
+<% end %>

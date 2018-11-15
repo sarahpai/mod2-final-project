@@ -4,8 +4,8 @@ class Restaurant < ApplicationRecord
   has_many :photos, dependent: :destroy
   has_many :users, through: :reservations
   has_many :users, through: :reviews
-  validates_presence_of :name, :address, :phone, :credit_card, :delivery
-  validates_uniqueness_of :name, :address
+  # validates_presence_of :name, :address, :phone, :credit_card, :delivery
+  # validates_uniqueness_of :name, :address
 
 
   geocoded_by :address

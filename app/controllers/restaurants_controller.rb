@@ -39,7 +39,8 @@ class RestaurantsController < ApplicationController
     # end
 
     @restaurant.update_attributes(restaurant_params)
-
+    @photo = Photo.create(user: current_user, restaurant: @restaurant, url: params[:restaurant][:restaurant_photo])
+    # byebug
     redirect_to restaurant_path(@restaurant)
   end
 
