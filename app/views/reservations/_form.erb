@@ -26,3 +26,22 @@
 <%= f.submit %>
 
 <% end %>
+
+<div class="ui form">
+  <div class="field">
+    <label>Time</label>
+    <select multiple="" class="ui dropdown">
+      <%=  form_for @reservation do |f| %>
+      <%= f.time_select :time,
+        :combined => true,
+        :default => Time.now.change(:hour => 11, :min => 30),
+        :minute_interval => 15,
+        :time_separator => "",
+        :start_hour => 17,
+        :start_minute => 30,
+        :end_hour => 22,
+        :end_minute => 30,
+        :ampm => true %>
+      <% end %>
+    </select>
+  </div>
