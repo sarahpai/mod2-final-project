@@ -6,7 +6,9 @@
   <%= submit_tag("Search") %>
 <% end %>
 
+<div>
 <% @restaurants.each do |restaurant| %>
+  <%= link_to(image_tag(restaurant.restaurant_photo.small_thumb.to_s)) %>
   <h3><%= link_to restaurant.name, restaurant_path(restaurant)%></h3>
 
   Address:<%= restaurant.address %><br>
@@ -19,6 +21,7 @@
   <br>
   <% link_to 'Delete Restaurant', restaurant_path(restaurant), method: :delete %>
   <% end %>
+  </div>
 <br>
 <br>
 <br>

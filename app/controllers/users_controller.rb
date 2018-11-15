@@ -30,6 +30,8 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user.update_attributes(user_params)
+    redirect_to @user
   end
 
   def destroy

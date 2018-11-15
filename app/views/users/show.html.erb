@@ -1,9 +1,14 @@
 
     <h3>
-
-     <%# <%= image_tag(@user.profile_picture, alt: 'Image') if @user.profile_picture %>
+      User picture<%= link_to(image_tag(@user.profile_picture.thumb.to_s)) %>
     </h3>
-
+    <div>
+      <%= form_for @user do |f| %>
+      
+        <%= f.file_field :profile_picture %>
+        <%= f.submit %>
+      <% end %>
+    </div>
 <h2><%= flash[:notice] %></h2>
 
 Name:
@@ -39,11 +44,6 @@ Reservations:
   <br>
   <br>
 
-    <div>
-      <%= form_for @user do |f| %>
-        <%= f.label :profile_picture %>
-        <%= f.file_field :profile_picture %>
-      <% end %>
-    </div>
+
 
     <%= link_to "edit profile", edit_user_path(@user) %>

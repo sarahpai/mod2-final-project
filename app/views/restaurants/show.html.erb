@@ -1,8 +1,18 @@
 <h2><%= @restaurant.name %></h2>
+
+<div>
+  <%= form_for @restaurant do |f| %>
+    <%= f.label :restaurant_photo %>
+    <%= f.file_field :restaurant_photo %>
+    <%= f.submit %>
+  <% end %>
+</div>
+
 <h3>
  Picture:
+ <%= link_to(image_tag(@restaurant.restaurant_photo.thumb.to_s)) %>
 <%# <%= @restaurant.restaurant_photo.to_s %>
-<%= image_tag(@restaurant.restaurant_photo.to_s) if @restaurant.restaurant_photo %>
+<%# <%= image_tag(@restaurant.restaurant_photo.to_s(:thumb)) if @restaurant.restaurant_photo %>
 </h3>
 
 <p> Location: </p>

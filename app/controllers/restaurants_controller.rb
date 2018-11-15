@@ -34,12 +34,12 @@ class RestaurantsController < ApplicationController
   end
 
   def update
-    if restaurant_params[:restaurant_photo]
-      restaurant_params[:restaurant_photo] = restaurant_params[:restaurant_photo].original_filename
-    end
+    # if restaurant_params[:restaurant_photo]
+    #   restaurant_params[:restaurant_photo] = restaurant_params[:restaurant_photo].original_filename
+    # end
 
     @restaurant.update_attributes(restaurant_params)
-  
+
     redirect_to restaurant_path(@restaurant)
   end
 
