@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  validates :password, presence: true
+  validates :password, confirmation: { case_sensitive: true }
   has_many :reservations, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many :restaurants, through: :reservations
