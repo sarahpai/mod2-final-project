@@ -16,7 +16,16 @@
 </h3>
 
 <p> Location: </p>
-  <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&zoom=17&markers=#{@restaurant.latitude}%2C#{@restaurant.longitude}&key=#{ENV["GOOGLE_MAPS_API_KEY"]}" %>
+<iframe
+  width="600"
+  height="450"
+  frameborder="0" style="border:0"
+  src="https://www.google.com/maps/embed/v1/place?key=[ENV=GOOGLE_MAPS_API_KEY]&q= restaurant.address" allowfullscreen %>
+</iframe>
+<!-- src="https://www.google.com/maps/embed/v1/place?key=MY_API_K‌​EY&q=' + data.long + ',' + data.lat + '") -->
+<!-- place_id: restaurant.latitude + ',' + @restaurant.longitude + ' + zoom=5 + center -->
+<!-- https://www.google.com/maps/embed/v1/place?key=#{ENV["GOOGLE_MAPS_API_KEY"]}&q=#{@re} -->
+  <%# <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&zoom=17&markers=#{@restaurant.latitude}%2C#{@restaurant.longitude}&key=#{ENV["GOOGLE_MAPS_API_KEY"]}" %> %>
 
 <br>
 <p> Address: <%= @restaurant.address %> </p>

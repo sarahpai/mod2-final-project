@@ -8,7 +8,7 @@ class Restaurant < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
-
+  reverse_geocoded_by :latitude, :longitude, :address => :full_address
   mount_uploader :restaurant_photo, ImageUploader
   validates :restaurant_photo, file_size: { less_than: 1.megabytes }
 
