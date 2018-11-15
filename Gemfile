@@ -3,8 +3,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 
 ruby '2.3.3'
-gem 'jquery-rails'
-gem 'bootstrap-sass'
 gem "combined_time_select", "~> 2.0.0"
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'geocoder'

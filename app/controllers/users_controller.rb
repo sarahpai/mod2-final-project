@@ -13,7 +13,6 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    render "new"
   end
 
   def create
@@ -22,7 +21,8 @@ class UsersController < ApplicationController
       login_user(@user)
       redirect_to @user
     else
-    render "new"
+      flash[:errors] = @user.errors.full_messages
+      redirect_to new_user_path
     end
   end
 

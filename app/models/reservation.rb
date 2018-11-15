@@ -1,6 +1,7 @@
 class Reservation < ApplicationRecord
   belongs_to :restaurant
   belongs_to :user
+  validates_presence_of :party_size, :date, :time
 
   def split_date
     self.date.to_s.split(" ").first

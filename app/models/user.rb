@@ -1,6 +1,8 @@
 class User < ApplicationRecord
-  validates :password, presence: true
-  validates :password, confirmation: { case_sensitive: true }
+  # validates_presence_of :email, :password, :password_confirmation, :user_name, :first_name, :last_name
+  # validates_length_of :password, :password_confirmation, minimum: 8, on: :create
+  # validates_uniqueness_of :email, :user_name
+  # validates :password, confirmation: { case_sensitive: true }
   has_many :reservations, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many :restaurants, through: :reservations
