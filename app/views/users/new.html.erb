@@ -13,7 +13,7 @@
     </div>
     <br>
 
-  <div class="four wide column">
+  <div class="twelve wide column">
     <% if flash[:errors] %>
     <% flash[:errors].each do |error| %>
       <p><%= error %></p>
@@ -34,7 +34,7 @@
       <%= f.password_field :password_confirmation %>
       </div>
       <div class="field">
-      <%= f.label :user_name %>
+      <%= f.label 'Username' %>
       <%= f.text_field :user_name %>
       <div class="field">
       </div>
@@ -52,7 +52,6 @@
 </div>
   </div>
 <div class="four wide column"></div>
-  <div class="four wide column"></div>
 
 </div>
 

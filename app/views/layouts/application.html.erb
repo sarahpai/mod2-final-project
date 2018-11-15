@@ -11,6 +11,11 @@
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+</style>
 
   </head>
 
@@ -34,7 +39,7 @@
         <div class="item">
           <%= form_tag restaurants_path, method: :get, class: "ui search" do %>
           <%= text_field_tag :search, params[:search], placeholder: "Search Restaurant", class: "prompt" %>
-          <%= submit_tag "Search", class: "ui button" %>
+          <%= submit_tag "Search", class: "ui teal basic button" %>
         <% end %>
       </div>
     </div>

@@ -18,12 +18,11 @@ before_action :find_review, only: [:edit, :update, :show, :destroy]
   def create
     @review = Review.create(review_params)
     @restaurant = Restaurant.find_by(id: @review.restaurant_id)
-    @user = User.find_by(id:params[:id])
     if @review.valid?
       redirect_to restaurant_path(@review.restaurant)
     else
       flash[:errors] = @review.errors.full_messages
-      redirect_to new_review_path
+      redirect_to new_review_path(@restaurant.id)
     end
   end
 
