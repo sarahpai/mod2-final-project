@@ -1,112 +1,28 @@
-<body class="w3-light-grey">
+<!-- Menu Section -->
+<div class="w3-row w3-padding-64" id="menu">
+  <div class="w3-col l6 w3-padding-large">
+    <h1 class="w3-center">Our Menu</h1><br>
+    <h4>Bread Basket</h4>
+    <p class="w3-text-grey">Assortment of fresh baked fruit breads and muffins 5.50</p><br>
 
-<!-- Page Container -->
-<div class="w3-content w3-margin-top" style="max-width:1400px;">
+    <h4>Honey Almond Granola with Fruits</h4>
+    <p class="w3-text-grey">Natural cereal of honey toasted oats, raisins, almonds and dates 7.00</p><br>
 
-  <!-- The Grid -->
-  <div class="w3-row-padding">
+    <h4>Belgian Waffle</h4>
+    <p class="w3-text-grey">Vanilla flavored batter with malted flour 7.50</p><br>
 
-    <!-- Left Column -->
-    <div class="w3-third">
+    <h4>Scrambled eggs</h4>
+    <p class="w3-text-grey">Scrambled eggs, roasted red pepper and garlic, with green onions 7.50</p><br>
 
-      <div class="w3-white w3-text-grey w3-card-4">
-        <div class="w3-display-container">
-          <%= link_to(image_tag(@user.profile_picture.thumb.to_s)) %>
-          <div class="w3-display-bottomleft w3-container w3-text-black">
-          </div>
-        </div>
-        <div class="w3-container">
-          <h2><i class="fa-fw w3-margin-right w3-large w3-text-teal"></i><%= @user.full_name %></h2>
-          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i><%# @user.location %></p>
-          <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i><%= @user.email %></p>
-          <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i><%# @user.phone %></p>
-          <hr>
-
-          <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Recent Reviews</b></p>
-          <p>Review 1</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-
-          </div>
-          <p>Review 2</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-
-
-          </div>
-          <p>Review 3</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-
-          </div>
-          <p>Review 4</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-
-          </div>
-          <br>
-
-          <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Past Reservation</b></p>
-          <p>Reservation 1</p>
-          <div class="w3-light-grey w3-round-xlarge">
-            <div class="w3-round-xlarge w3-teal" style="height:24px;width:100%"></div>
-          </div>
-          <p>Spanish</p>
-          <div class="w3-light-grey w3-round-xlarge">
-            <div class="w3-round-xlarge w3-teal" style="height:24px;width:55%"></div>
-          </div>
-          <p>German</p>
-          <div class="w3-light-grey w3-round-xlarge">
-            <div class="w3-round-xlarge w3-teal" style="height:24px;width:25%"></div>
-          </div>
-          <br>
-        </div>
-      </div><br>
-
-    <!-- End Left Column -->
-    </div>
-
-    <!-- Right Column -->
-    <div class="w3-twothird">
-
-      <div class="w3-container w3-card w3-white w3-margin-bottom">
-        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-cutlery fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Reservations</h2>
-        <% @user.reservations.each do |reservation|  %>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b><%= link_to reservation.restaurant.name, restaurant_path(reservation.restaurant)%></b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i><%= reservation.split_date %> @ <%= reservation.split_time %></h6>
-          <p><%= reservation.party_size %> People</p>
-          <%= link_to 'Edit', edit_reservation_path(reservation) %>
-          <%= link_to 'Delete', reservation_path(reservation), method: :delete, data: {confirm: "Are you sure you want to delete this reservation?"} %>
-        <% end %>
-          <hr>
-        </div>
-
-      </div>
-
-      <div class="w3-container w3-card w3-white">
-        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education</h2>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>W3Schools.com</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Forever</h6>
-          <p>Web Development! All I need to know in one place</p>
-          <hr>
-        </div>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>London Business School</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2013 - 2015</h6>
-          <p>Master Degree</p>
-          <hr>
-        </div>
-      </div>
-
-    <!-- End Right Column -->
-    </div>
-
-  <!-- End Grid -->
+    <h4>Blueberry Pancakes</h4>
+    <p class="w3-text-grey">With syrup, butter and lots of berries 8.50</p>
   </div>
 
-  <!-- End Page Container -->
+  <div class="w3-col l6 w3-padding-large">
+    <img src="/w3images/tablesetting.jpg" class="w3-round w3-image w3-opacity-min" alt="Menu" style="width:100%">
+  </div>
 </div>
 
-
-</body>
 
     <h3>
       User picture<%= link_to(image_tag(@user.profile_picture.thumb.to_s)) %>

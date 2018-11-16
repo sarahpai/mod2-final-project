@@ -1,81 +1,137 @@
-<h2>Users index</h2>
-<% @users.each do |user| %>
-<p>Username: <%= link_to user.user_name, user %></p>
-<%= link_to 'Delete User', user_path(user), method: :delete %>
-<% end %>
+<!DOCTYPE html>
+  <html>
+  <title>W3.CSS Template</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+  body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
+  .mySlides {display:none}
+  </style>
 
-<!-- Bootstrap Core CSS -->
-    <link href="https://blackrockdigital.github.io/startbootstrap-stylish-portfolio/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!-- Navbar (sit on top) -->
+<!-- <div class="w3-top">
+  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+    <a href="#home" class="w3-bar-item w3-button"><b>BR</b> Architects</a> -->
+    <!-- Float links to the right. Hide them on small screens -->
+    <!-- <div class="w3-right w3-hide-small">
+      <a href="#projects" class="w3-bar-item w3-button">Projects</a>
+      <a href="#about" class="w3-bar-item w3-button">About</a>
+      <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+    </div>
+  </div>
+</div> -->
 
-    <!-- Custom Fonts -->
-    <link href="https://blackrockdigital.github.io/startbootstrap-stylish-portfolio/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
-    <link href="https://blackrockdigital.github.io/startbootstrap-stylish-portfolio/vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+<!-- About Section -->
 
-    <!-- Custom CSS -->
-    <link href="https://blackrockdigital.github.io/startbootstrap-stylish-portfolio/css/stylish-portfolio.min.css" rel="stylesheet">
+<div class="w3-container" style="padding: 16px" id="box-info">
 
-    <!-- Portfolio -->
-    <section class="content-section" id="portfolio">
-      <div class="container">
-        <div class="content-section-heading text-center">
-          <h2 class="mb-5">Restaurants</h2>
+  <div class="column" id="restaurant-map">
+  </div>
+</div>
+
+<div class="w3-row-padding w3-center" style="margin-top:64px">
+  <div class="w3-quarter">
+    <i class="w3-margin-bottom w3-jumbo w3-center"></i>
+    <p class="w3-large">
+
+    <h3><%= @restaurant.name %></h3>
+    <hr>
+
+
+      <img src= <%= "http://maps.google.com/maps/api/staticmap?size=200x150&zoom=17&markers=#{@restaurant.latitude}%2C#{@restaurant.longitude}&key=#{ENV["GOOGLE_MAPS_API_KEY"]}" %> id="google-map">
+
+
+        <h6><%= @restaurant.address %></h6>
+        <h6><%= @restaurant.phone %></h6>
+        <p>Total: <%= @restaurant.total_reviews %></p>
+        <p>Average star: <%= @restaurant.average_star %></p>
+
+      <i class="icons"><i class="signup icon"></i><i class="signup"></i></i>
+      <%= link_to 'Write a Review', new_review_path(@restaurant.id) %><br>
+      <i class="calendar alternate icon"></i>
+      <%= link_to 'Make a Reservation', new_reservation_path(@restaurant.id) %><br>
+      <%= link_to 'Back', restaurants_path %>
+      <!-- map box -->
+    <br>
+    <br>
+    <br>
+
+  </div>
+  <div class="w3-quarter">
+    <i class="w3-margin-bottom w3-jumbo"></i>
+    <p class="w3-large">Passion</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+  </div>
+  <div class="w3-quarter">
+    <i class="fa fa-diamond w3-margin-bottom w3-jumbo"></i>
+    <p class="w3-large">Design</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+  </div>
+  <div class="w3-quarter">
+    <div class="column" id="restaurant-form">
+      <!-- <div class="ui segment"> -->
+          <i class="phone square icon"></i>
+          Phone:
+          <%= @restaurant.phone %><br>
+
+          <i class="icons"><i class="payment icon"></i><i class="payment"></i></i>
+          Accept Credit Card:
+          <%= @restaurant.credit_card ? "Yes" : "No" %> <br>
+          Delivery:
+          <%= @restaurant.delivery ? "Yes" : "No" %><br>
+          <i class="icons"><i class="clock icon"></i><i class="clock"></i></i>
+          Hours of operation:
+          <br>
+          Mon Closed<br>
+          Tue 5:00 pm - 12:00 am<br>
+          Wed 5:00 pm - 12:00 am<br>
+          Thu 5:00 pm - 12:00 am<br>
+          Fri 5:00 pm - 12:00 am<br>
+          Sat 5:00 pm - 12:00 am<br>
+          Sun 5:00 pm - 12:00 am<br>
+          <br>
+
         </div>
-        <div class="row no-gutters">
-          <div class="col-lg-6">
-            <a class="portfolio-item" href="/restaurants/5">
-              <span class="caption">
-                <span class="caption-content">
-                  <h1>Chef's Table</h1>
-                  <p class="mb-0">431 W 37th St, New York, NY 10018</p>
-                </span>
-              </span>
-              <img class="img-fluid" src="http://i68.tinypic.com/2ro4x9z.jpg" alt="">
-            </a>
-          </div>
-          <div class="col-lg-6">
-            <a class="portfolio-item" href="/restaurants/5">
-              <span class="caption">
-                <span class="caption-content">
-                  <h1>Peter Luger Steak House</h1>
-                  <p class="mb-0">178 Broadway, Brooklyn, NY 11211</p>
-                </span>
-              </span>
-              <img class="img-fluid" src="http://www.johnnyprimesteaks.com/wp-content/uploads/2017/03/DSC03997-672x372.jpg" alt="">
-            </a>
-          </div>
-          <div class="col-lg-6">
-            <a class="portfolio-item" href="/restaurants/5">
-              <span class="caption">
-                <span class="caption-content">
-                  <h1>Carbone</h1>
-                  <p class="mb-0">181 Thompson St, New York, NY 10012</p>
-                </span>
-              </span>
-              <img class="img-fluid" src="https://blackrockdigital.github.io/startbootstrap-stylish-portfolio/img/portfolio-3.jpg" alt="">
-            </a>
-          </div>
-          <div class="col-lg-6">
-            <a class="portfolio-item" href="/restaurants/5">
-              <span class="caption">
-                <span class="caption-content">
-                  <h2>Uchu</h2>
-                  <p class="mb-0">217 Eldridge St, New York, NY 10002</p>
-                </span>
-              </span>
-              <img class="img-fluid" src="https://blackrockdigital.github.io/startbootstrap-stylish-portfolio/img/portfolio-4.jpg" alt="">
-            </a>
-          </div>
         </div>
       </div>
-    </section>
+<!-- </div> -->
+<%= form_for @restaurant do |f| %>
+  <%= f.label :restaurant_photo %>
+  <%= f.file_field :restaurant_photo %>
+  <%= f.submit class: "ui basic button" %>
+<% end %>
+  <!-- Picture Section -->
+  <div class="w3-container">
+    <div class="w3-row-padding" >
+      <div class="w3-col l3 m6">
+          <%= image_tag "rag_bone.jpg", alt: "Cinque Terre", class: "image-size", style: "width:100%", onclick: "onClick(this)", class: "w3-hover-opacity", alt: "A microphone" %>
+      </div>
+      <div class="w3-col l3 m6">
+        <%= image_tag "burger.jpg", alt: "Cinque Terre", class: "image-size", style: "width:100%", onclick: "onClick(this)", class: "w3-hover-opacity", alt: "A microphone" %>
+      </div>
+      <div class="w3-col l3 m6">
+        <%= image_tag "burger2.jpg", alt: "Cinque Terre", class: "image-size", style: "width:100%", onclick: "onClick(this)", class: "w3-hover-opacity", alt: "A microphone" %>
+      </div>
+      <div class="w3-col l3 m6">
+        <%= image_tag "burger3.jpg", alt: "Cinque Terre", class: "image-size", style: "width:100%", onclick: "onClick(this)", class: "w3-hover-opacity", alt: "A microphone" %>
+      </div>
+    </div>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="https://blackrockdigital.github.io/startbootstrap-stylish-portfolio/vendor/jquery/jquery.min.js"></script>
-    <script src="https://blackrockdigital.github.io/startbootstrap-stylish-portfolio/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="https://blackrockdigital.github.io/startbootstrap-stylish-portfolio/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for this template -->
-    <script src="https://blackrockdigital.github.io/startbootstrap-stylish-portfolio/js/stylish-portfolio.min.js"></script>
+    <div class="w3-row-padding w3-section">
+      <div class="w3-col l3 m6">
+        <%= image_tag "burger3.jpg", alt: "Cinque Terre", class: "image-size", style: "width:100%", onclick: "onClick(this)", class: "w3-hover-opacity", alt: "A microphone" %>
+      </div>
+      <div class="w3-col l3 m6">
+        <%= image_tag "baking_bread.jpg", alt: "Cinque Terre", class: "image-size", style: "width:100%", onclick: "onClick(this)", class: "w3-hover-opacity", alt: "A microphone" %>
+      </div>
+      <div class="w3-col l3 m6">
+        <%= image_tag "baking_bread.jpg", alt: "Cinque Terre", class: "image-size", style: "width:100%", onclick: "onClick(this)", class: "w3-hover-opacity", alt: "A microphone" %>
+      </div>
+      <div class="w3-col l3 m6">
+        <%= image_tag "burger.jpg", alt: "Cinque Terre", class: "image-size", style: "width:100%", onclick: "onClick(this)", class: "w3-hover-opacity", alt: "A microphone" %>
+      </div>
+    </div>
+  </div>
