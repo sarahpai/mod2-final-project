@@ -9,3 +9,23 @@
   margin-bottom: 10px;
   margin-left: -15px
 }
+
+.mapbox-container{
+  padding: 5px;
+  border-top-style: solid;
+  border-top: 1px;
+  border-width: 1px;
+  border: 1px;
+  height: 358.95px;
+  width: 300px;
+
+
+}
+
+.image-upload > input
+{
+   display: none;
+}
+.image-upload > label{
+  cursor:pointer;
+}
