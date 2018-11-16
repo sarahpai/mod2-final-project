@@ -40,13 +40,13 @@
    z-index: -1;
   }
 
- .splash-image {
+ /* .splash-image { */
    /* background-image: "<%= image_tag(@restaurant.restaurant_photo.to_s %>"; */
-   height: 50%;
+   /* height: 50%;
    background-position: center;
    background-repeat: no-repeat;
    background-size: contain;
- }
+ } */
 
 
 .gallery {
@@ -85,3 +85,25 @@
  #login-form {
    top: 10px;
  }
+/* 
+ .w3-container {
+   z-index: 3;
+ } */
+
+ #google-map {
+   width: 250px;
+   height: 250px;
+ }
+
+#restaurant-form {
+  float: right;
+  /* width: 40%; */
+  margin-right: 30px;
+  width: 100%;
+}
+
+#restaurant-map {
+  /* float: center; */
+  width: 60%;
+  margin-left: 250px;
+}
