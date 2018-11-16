@@ -5,8 +5,9 @@
         <div class="col-sm-8">
           <h2 class="mt-4"><%= @restaurant.name %></h2>
           <h5>Cuisine $$$</h5>
-          <p>Average Review</p>
-          <p>Number of Reviews</p>
+          <p>Average Review <%= @restaurant.average_star %></p>
+          <%=image_tag "star.png"%>
+          <p>Number of Reviews: <%= @restaurant.total_reviews %></p>
           <p>Restaurant DescriptionRestaurant DescriptionRestaurant DescriptionRestaurant Description</p>
           <h4>Google Map Placeholder</h4>
           <img src= <%= "http://maps.google.com/maps/api/staticmap?size=200x150&zoom=17&markers=#{@restaurant.latitude}%2C#{@restaurant.longitude}&key=#{ENV["GOOGLE_MAPS_API_KEY"]}" %> id="google-map">
@@ -28,8 +29,7 @@
             <%= @restaurant.credit_card ? "Yes" : "No" %> <br>
             <i class="bicycle icon"></i>
             Delivery:
-            <%= @restaurant.delivery ? "Yes" : "No" %><br>
-            <br>
+            <%= @restaurant.delivery ? "Yes" : "No" %><hr>
             <a class="ui teal basic button" href="/reservations/new/<%= @restaurant.id %>">Make a Reservation</a>
             <br>
               <br>
@@ -40,8 +40,7 @@
         </div>
       </div>
       <!-- /.row -->
-<br>
-<br>
+<hr>
       <div class="row">
         <div class="w3-container">
           <div class="w3-row-padding" >
@@ -70,15 +69,14 @@
               <%= image_tag "baking_bread.jpg", alt: "Cinque Terre", class: "image-size", style: "width:100%", onclick: "onClick(this)", class: "w3-hover-opacity", alt: "A microphone" %>
             </div>
             <div class="w3-col l3 m6">
-              <%= image_tag "burger.jpg", alt: "Cinque Terre", class: "image-size", style: "width:100%", onclick: "onClick(this)", class: "w3-hover-opacity", alt: "A microphone" %>
+              <%= form_for @restaurant do |f| %>
+                <%= f.label :restaurant_photo %>
+                <%= f.file_field :restaurant_photo %>
+                <%= f.submit class: "ui basic button" %>
+              <% end %>
             </div>
           </div>
         </div>
-        <%= form_for @restaurant do |f| %>
-          <%= f.label :restaurant_photo %>
-          <%= f.file_field :restaurant_photo %>
-          <%= f.submit class: "ui basic button" %>
-        <% end %>
       </div>
       <!-- /.row -->
 
