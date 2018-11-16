@@ -40,14 +40,6 @@
    z-index: -1;
   }
 
- .splash-image {
-   /* background-image: "<%= image_tag(@restaurant.restaurant_photo.to_s %>"; */
-   height: 50%;
-   background-position: center;
-   background-repeat: no-repeat;
-   background-size: contain;
- }
-
 
 .gallery {
      margin: 5px;

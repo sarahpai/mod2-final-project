@@ -1,27 +1,121 @@
-<h2>All Restaurants</h2>
+<!-- Bootstrap Core CSS -->
+    <link href="https://blackrockdigital.github.io/startbootstrap-stylish-portfolio/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- Custom Fonts -->
+    <link href="https://blackrockdigital.github.io/startbootstrap-stylish-portfolio/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://blackrockdigital.github.io/startbootstrap-stylish-portfolio/vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
 
+    <!-- Custom CSS -->
+    <link href="https://blackrockdigital.github.io/startbootstrap-stylish-portfolio/css/stylish-portfolio.min.css" rel="stylesheet">
 
-<div>
-<% @restaurants.each do |restaurant| %>
-  <%= link_to(image_tag(restaurant.restaurant_photo.small_thumb.to_s)) %>
-  <h3><%= link_to restaurant.name, restaurant_path(restaurant)%></h3>
+    <!-- Portfolio -->
+    <section class="content-section" id="portfolio">
+      <div class="restaurant_index">
+      <div class="container">
+        <div class="content-section-heading text-center">
+          <h2 class="mb-5">Restaurants</h2>
+        </div>
+        <div class="row no-gutters">
+          <div class="col-lg-6">
+            <a class="portfolio-item" href="/restaurants/5">
+              <span class="caption">
+                <span class="caption-content">
+                  <h1>Chef's Table</h1>
+                  <p class="mb-0">431 W 37th St, New York, NY 10018</p>
+                </span>
+              </span>
+              <img class="img-fluid" src="http://i68.tinypic.com/2ro4x9z.jpg" alt="">
+            </a>
+          </div>
+          <div class="col-lg-6">
+            <a class="portfolio-item" href="/restaurants/5">
+              <span class="caption">
+                <span class="caption-content">
+                  <h1>Peter Luger Steak House</h1>
+                  <p class="mb-0">178 Broadway, Brooklyn, NY 11211</p>
+                </span>
+              </span>
+              <img class="img-fluid" src="http://www.johnnyprimesteaks.com/wp-content/uploads/2017/03/DSC03997-672x372.jpg" alt="">
+            </a>
+          </div>
+          <div class="col-lg-6">
+            <a class="portfolio-item" href="/restaurants/5">
+              <span class="caption">
+                <span class="caption-content">
+                  <h1>Carbone</h1>
+                  <p class="mb-0">181 Thompson St, New York, NY 10012</p>
+                </span>
+              </span>
+              <img class="img-fluid" src="https://blackrockdigital.github.io/startbootstrap-stylish-portfolio/img/portfolio-3.jpg" alt="">
+            </a>
+          </div>
+          <div class="col-lg-6">
+            <a class="portfolio-item" href="/restaurants/5">
+              <span class="caption">
+                <span class="caption-content">
+                  <h1>Uchu</h1>
+                  <p class="mb-0">217 Eldridge St, New York, NY 10002</p>
+                </span>
+              </span>
+              <img class="img-fluid" src="https://blackrockdigital.github.io/startbootstrap-stylish-portfolio/img/portfolio-4.jpg" alt="">
+            </a>
+          </div>
+          <div class="col-lg-6">
+            <a class="portfolio-item" href="/restaurants/5">
+              <span class="caption">
+                <span class="caption-content">
+                  <h1>Sarah-1</h1>
+                  <p class="mb-0">217 Eldridge St, New York, NY 10002</p>
+                </span>
+              </span>
+              <img class="img-fluid" src="https://blackrockdigital.github.io/startbootstrap-stylish-portfolio/img/portfolio-4.jpg" alt="">
+            </a>
+          </div>
+          <div class="col-lg-6">
+            <a class="portfolio-item" href="/restaurants/5">
+              <span class="caption">
+                <span class="caption-content">
+                  <h1>Sarah-2</h1>
+                  <p class="mb-0">217 Eldridge St, New York, NY 10002</p>
+                </span>
+              </span>
+              <img class="img-fluid" src="https://blackrockdigital.github.io/startbootstrap-stylish-portfolio/img/portfolio-4.jpg" alt="">
+            </a>
+          </div>
+          <div class="col-lg-6">
+            <a class="portfolio-item" href="/restaurants/5">
+              <span class="caption">
+                <span class="caption-content">
+                  <h1>Sarah-3</h1>
+                  <p class="mb-0">217 Eldridge St, New York, NY 10002</p>
+                </span>
+              </span>
+              <img class="img-fluid" src="https://blackrockdigital.github.io/startbootstrap-stylish-portfolio/img/portfolio-4.jpg" alt="">
+            </a>
+          </div>
+          <div class="col-lg-6">
+            <a class="portfolio-item" href="/restaurants/5">
+              <span class="caption">
+                <span class="caption-content">
+                  <h1>Sarah-4</h1>
+                  <p class="mb-0">217 Eldridge St, New York, NY 10002</p>
+                </span>
+              </span>
+              <img class="img-fluid" src="https://blackrockdigital.github.io/startbootstrap-stylish-portfolio/img/portfolio-4.jpg" alt="">
+            </a>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
 
-  Address:<%= restaurant.address %><br>
-  Phone:
-  <%= restaurant.phone %><br>
-  Total Reviews:
-  <%= restaurant.total_reviews %><br>
-  Average Star Rating:
-  <%= restaurant.average_star %>
-  <br>
-  <% link_to 'Delete Restaurant', restaurant_path(restaurant), method: :delete %>
-  <% end %>
-  </div>
-<br>
-<br>
-<br>
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://blackrockdigital.github.io/startbootstrap-stylish-portfolio/vendor/jquery/jquery.min.js"></script>
+    <script src="https://blackrockdigital.github.io/startbootstrap-stylish-portfolio/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+    <!-- Plugin JavaScript -->
+    <script src="https://blackrockdigital.github.io/startbootstrap-stylish-portfolio/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-
-<%= link_to "New Restaurant", new_restaurant_path %>
+    <!-- Custom scripts for this template -->
+    <script src="https://blackrockdigital.github.io/startbootstrap-stylish-portfolio/js/stylish-portfolio.min.js"></script>
