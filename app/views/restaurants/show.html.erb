@@ -3,15 +3,18 @@
 
       <div class="row">
         <div class="col-sm-8">
-          <h2 class="mt-4"><%= @restaurant.name %></h2>
+          <h2 class="mt-4"><%= @restaurant.name.capitalize %></h2>
+          <div class="mapbox-container"
+          <h5>Google Map Placeholder</h5>
+          <img src= <%= "http://maps.google.com/maps/api/staticmap?size=200x150&zoom=15&markers=#{@restaurant.latitude}%2C#{@restaurant.longitude}&key=#{ENV["GOOGLE_MAPS_API_KEY"]}" %> id="google-map">
+
+
           <h5>Cuisine $$$</h5>
           <p>Average Review <%= @restaurant.average_star %></p>
           <%=image_tag "star.png"%>
           <p>Number of Reviews: <%= @restaurant.total_reviews %></p>
           <p>Restaurant DescriptionRestaurant DescriptionRestaurant DescriptionRestaurant Description</p>
-          <h4>Google Map Placeholder</h4>
-          <img src= <%= "http://maps.google.com/maps/api/staticmap?size=200x150&zoom=17&markers=#{@restaurant.latitude}%2C#{@restaurant.longitude}&key=#{ENV["GOOGLE_MAPS_API_KEY"]}" %> id="google-map">
-
+          </div>
 
         </div>
         <div class="col-sm-4">
@@ -22,7 +25,7 @@
           </address>
           <address>
             <i class="phone square icon"></i>
-            Phone:
+
             <%= @restaurant.phone %><br>
             <i class="icons"><i class="payment icon"></i><i class="payment"></i></i>
             Accept Credit Card:
@@ -34,8 +37,22 @@
             <br>
               <br>
             <a class="ui teal basic button" href="/reviews/new/<%= @restaurant.id %>">Write a Review</a>
-
-
+              <br>
+              <br>
+            <!-- <a class="ui teal basic button" href="/reviews/new/<%= @restaurant.id %>">Upload photo -->
+            <a
+            <%# <%= form_tag @restaurant, method: :post, class: "ui teal basic button" do %>
+              <%# <%= file_field( %>
+                  <!-- :restaurant, -->
+                  <!-- params[:restaurant_photo])%> -->
+               <%# <%= submit_tag "Add photo", class: "ui teal basic button" %>
+            <%# <% end %>
+            <%= form_for @restaurant do |f| %>
+              <%= f.label :restaurant_photo %>
+              <%= f.file_field :restaurant_photo %>
+              <%= f.submit "Add photo", class: "ui teal basic button" %>
+            <% end %>
+            </a>
           </address>
         </div>
       </div>
@@ -45,35 +62,36 @@
         <div class="w3-container">
           <div class="w3-row-padding" >
             <div class="w3-col l3 m6">
-                <%= image_tag "rag_bone.jpg", alt: "Cinque Terre", class: "image-size", style: "width:100%", onclick: "onClick(this)", class: "w3-hover-opacity", alt: "A microphone" %>
+                <%= image_tag "rag_bone.jpg", alt: "Cinque Terre", class: "image-size", style: "width:100%", onclick: "onClick(this)", class: "w3-hover-opacity" %>
             </div>
             <div class="w3-col l3 m6">
-              <%= image_tag "burger.jpg", alt: "Cinque Terre", class: "image-size", style: "width:100%", onclick: "onClick(this)", class: "w3-hover-opacity", alt: "A microphone" %>
+              <%= image_tag "burger.jpg", alt: "Cinque Terre", class: "image-size", style: "width:100%", onclick: "onClick(this)", class: "w3-hover-opacity" %>
             </div>
             <div class="w3-col l3 m6">
-              <%= image_tag "burger2.jpg", alt: "Cinque Terre", class: "image-size", style: "width:100%", onclick: "onClick(this)", class: "w3-hover-opacity", alt: "A microphone" %>
+              <%= image_tag "burger2.jpg", alt: "Cinque Terre", class: "image-size", style: "width:100%", onclick: "onClick(this)", class: "w3-hover-opacity" %>
             </div>
             <div class="w3-col l3 m6">
-              <%= image_tag "burger3.jpg", alt: "Cinque Terre", class: "image-size", style: "width:100%", onclick: "onClick(this)", class: "w3-hover-opacity", alt: "A microphone" %>
+              <%= image_tag "burger3.jpg", alt: "Cinque Terre", class: "image-size", style: "width:100%", onclick: "onClick(this)", class: "w3-hover-opacity" %>
             </div>
           </div>
 
           <div class="w3-row-padding w3-section">
             <div class="w3-col l3 m6">
-              <%= image_tag "burger3.jpg", alt: "Cinque Terre", class: "image-size", style: "width:100%", onclick: "onClick(this)", class: "w3-hover-opacity", alt: "A microphone" %>
+              <%= image_tag "burger3.jpg", alt: "Cinque Terre", class: "image-size", style: "width:100%", onclick: "onClick(this)", class: "w3-hover-opacity" %>
             </div>
             <div class="w3-col l3 m6">
-              <%= image_tag "baking_bread.jpg", alt: "Cinque Terre", class: "image-size", style: "width:100%", onclick: "onClick(this)", class: "w3-hover-opacity", alt: "A microphone" %>
+              <%= image_tag "baking_bread.jpg", alt: "Cinque Terre", class: "image-size", style: "width:100%", onclick: "onClick(this)", class: "w3-hover-opacity" %>
             </div>
             <div class="w3-col l3 m6">
-              <%= image_tag "baking_bread.jpg", alt: "Cinque Terre", class: "image-size", style: "width:100%", onclick: "onClick(this)", class: "w3-hover-opacity", alt: "A microphone" %>
+              <%= image_tag "baking_bread.jpg", alt: "Cinque Terre", class: "image-size", style: "width:100%", onclick: "onClick(this)", class: "w3-hover-opacity" %>
             </div>
             <div class="w3-col l3 m6">
-              <%= form_for @restaurant do |f| %>
-                <%= f.label :restaurant_photo %>
-                <%= f.file_field :restaurant_photo %>
-                <%= f.submit class: "ui basic button" %>
-              <% end %>
+              <%# <%= form_for @restaurant do |f| %>
+                <%# <%= f.label :restaurant_photo %>
+                <%# <%= f.file_field :restaurant_photo %>
+                <%# <%= f.submit class: "ui basic button" %>
+              <%# <% end %>
+              <%= image_tag @restaurant.restaurant_photo.to_s, class: "image-size", style: "width: 100%", onclick: "onClick(this)", class: "w3-hover-opacity"%>
             </div>
           </div>
         </div>

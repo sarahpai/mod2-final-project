@@ -12,7 +12,7 @@
       <div class="w3-white w3-text-grey w3-card-4">
         <div class="w3-display-container">
           <div align="center">
-          <img class="ui small circular image" src="https://coswafe.com/img/static/blank.png">
+          <img class="ui small circular image" <%= image_tag(@user.profile_picture.thumb.to_s) %>
           </div>
           <div class="w3-display-bottomleft w3-container w3-text-black">
             <h2>Full Name</h2>
@@ -24,6 +24,12 @@
           <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>Email</p>
           <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>Phone number</p>
           <hr>
+
+          <%= form_for @user do |f| %>
+            <%= f.file_field :profile_picture %>
+            <%= f.submit "Add profile picture", class: "ui teal basic button"  %>
+              <h2><%= flash[:notice] %></h2>
+          <% end %>
 
 
           <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Reviews</b></p>
@@ -87,7 +93,7 @@
 
 
     <h3>
-      User picture<%= link_to(image_tag(@user.profile_picture.thumb.to_s)) %>
+      <!-- User picture<%= link_to(image_tag(@user.profile_picture.thumb.to_s)) %> -->
     </h3>
     <div>
       <%= form_for @user do |f| %>
