@@ -74,6 +74,11 @@
    max-width: 450px;
  }
 
+ .image-size{
+   max-width: 285px;
+   max-height: 190px
+ }
+
  #login-form {
    top: 10px;
  }

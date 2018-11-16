@@ -1,102 +1,191 @@
-<!-- Page Content -->
-    <div class="container">
+<div class="container">
 
-      <div class="row">
-        <div class="col-sm-8">
-          <h2 class="mt-4"><%= @restaurant.name.capitalize %></h2>
-          <div class="mapbox-container"
-          <h5>Google Map Placeholder</h5>
-          <img src= <%= "http://maps.google.com/maps/api/staticmap?size=200x150&zoom=15&markers=#{@restaurant.latitude}%2C#{@restaurant.longitude}&key=#{ENV["GOOGLE_MAPS_API_KEY"]}" %> id="google-map">
+  <div class="row">
+    <div class="col-sm-4">
+      <h2 class="mt-4"><%= @restaurant.name %></h2>
+      <h5><%= @restaurant.info %></h5>
+      <p>Average Review:
+        <% if @restaurant.average_star == 5  %>
+        <%= image_tag "star.png"%>
+        <%= image_tag "star.png"%>
+        <%= image_tag "star.png"%>
+        <%= image_tag "star.png"%>
+        <%= image_tag "star.png"%>
+        <% elsif @restaurant.average_star == 4  %>
+        <%= image_tag "star.png"%>
+        <%= image_tag "star.png"%>
+        <%= image_tag "star.png"%>
+        <%= image_tag "star.png"%>
+        <% elsif @restaurant.average_star == 3  %>
+        <%= image_tag "star.png"%>
+        <%= image_tag "star.png"%>
+        <%= image_tag "star.png"%>
+        <% elsif @restaurant.average_star == 2  %>
+        <%= image_tag "star.png"%>
+        <%= image_tag "star.png"%>
+        <% elsif @restaurant.average_star == 1  %>
+        <%= image_tag "star.png"%>
+        <% else @restaurant.average_star == 0  %>
+        <% end %>
+      <p>Number of Reviews:
+        <%= @restaurant.total_reviews %></p>
+        <hr>
+      <p><%= @restaurant.description %></p>
+    </div>
+    <div class="col-sm-4">
 
+      <h5 class="mt-4">Location</h5>
+      <address>
+        <strong><%= @restaurant.address %></strong>
+        <br>
+      </address>
+      <img src=<%= "http://maps.google.com/maps/api/staticmap?size=300x200&zoom=15&markers=#{@restaurant.latitude}%2C#{@restaurant.longitude}&key=#{ENV["GOOGLE_MAPS_API_KEY"]}" %> id="google-map">
+    </div>
+    <div class="col-sm-4">
+      <h4 class="mt-4">Restaurant Info</h4>
 
-          <h5>Cuisine $$$</h5>
-          <p>Average Review <%= @restaurant.average_star %></p>
-          <%=image_tag "star.png"%>
-          <p>Number of Reviews: <%= @restaurant.total_reviews %></p>
-          <p>Restaurant DescriptionRestaurant DescriptionRestaurant DescriptionRestaurant Description</p>
-          </div>
+      <address>
+        <i class="phone square icon"></i>
+        Phone:
+        <%= @restaurant.phone %><br>
+        <i class="icons">
+          <i class="payment icon"></i>
+          <i class="payment"></i>
+        </i>
+        Accept Credit Card:
+        <%= @restaurant.credit_card ? "Yes" : "No" %>
+        <br>
+        <i class="bicycle icon"></i>
+        Delivery:
+        <%= @restaurant.delivery ? "Yes" : "No" %><hr>
+        <a class="ui teal basic button" href="/reservations/new/<%= @restaurant.id %>">Make a Reservation</a>
+        <br>
+        <br>
+        <a class="ui teal basic button" href="/reviews/new/<%= @restaurant.id %>">Write a Review</a>
+        <br>
+        <br>
+        <%= form_for @restaurant do |f| %>
+        <%= f.file_field :restaurant_photo%>
+        <br>
+        <br>
+        <%= f.submit "Add photo", class: "mini ui teal basic button" %>
+      <% end %>
 
-        </div>
-        <div class="col-sm-4">
-          <h4 class="mt-4">Restaurant Info</h4>
-          <address>
-            <strong><%= @restaurant.address %></strong>
-            <br>
-          </address>
-          <address>
-            <i class="phone square icon"></i>
-
-            <%= @restaurant.phone %><br>
-            <i class="icons"><i class="payment icon"></i><i class="payment"></i></i>
-            Accept Credit Card:
-            <%= @restaurant.credit_card ? "Yes" : "No" %> <br>
-            <i class="bicycle icon"></i>
-            Delivery:
-            <%= @restaurant.delivery ? "Yes" : "No" %><hr>
-            <a class="ui teal basic button" href="/reservations/new/<%= @restaurant.id %>">Make a Reservation</a>
-            <br>
-              <br>
-            <a class="ui teal basic button" href="/reviews/new/<%= @restaurant.id %>">Write a Review</a>
-              <br>
-              <br>
-            <!-- <a class="ui teal basic button" href="/reviews/new/<%= @restaurant.id %>">Upload photo -->
-            <a
-            <%# <%= form_tag @restaurant, method: :post, class: "ui teal basic button" do %>
-              <%# <%= file_field( %>
-                  <!-- :restaurant, -->
-                  <!-- params[:restaurant_photo])%> -->
-               <%# <%= submit_tag "Add photo", class: "ui teal basic button" %>
-            <%# <% end %>
-            <%= form_for @restaurant do |f| %>
-              <%= f.label :restaurant_photo %>
-              <%= f.file_field :restaurant_photo %>
-              <%= f.submit "Add photo", class: "ui teal basic button" %>
-            <% end %>
-            </a>
-          </address>
-        </div>
-      </div>
-      <!-- /.row -->
+    </address>
+  </div>
+</div>
 <hr>
-      <div class="row">
-        <div class="w3-container">
-          <div class="w3-row-padding" >
-            <div class="w3-col l3 m6">
-                <%= image_tag "rag_bone.jpg", alt: "Cinque Terre", class: "image-size", style: "width:100%", onclick: "onClick(this)", class: "w3-hover-opacity" %>
-            </div>
-            <div class="w3-col l3 m6">
-              <%= image_tag "burger.jpg", alt: "Cinque Terre", class: "image-size", style: "width:100%", onclick: "onClick(this)", class: "w3-hover-opacity" %>
-            </div>
-            <div class="w3-col l3 m6">
-              <%= image_tag "burger2.jpg", alt: "Cinque Terre", class: "image-size", style: "width:100%", onclick: "onClick(this)", class: "w3-hover-opacity" %>
-            </div>
-            <div class="w3-col l3 m6">
-              <%= image_tag "burger3.jpg", alt: "Cinque Terre", class: "image-size", style: "width:100%", onclick: "onClick(this)", class: "w3-hover-opacity" %>
-            </div>
-          </div>
-
-          <div class="w3-row-padding w3-section">
-            <div class="w3-col l3 m6">
-              <%= image_tag "burger3.jpg", alt: "Cinque Terre", class: "image-size", style: "width:100%", onclick: "onClick(this)", class: "w3-hover-opacity" %>
-            </div>
-            <div class="w3-col l3 m6">
-              <%= image_tag "baking_bread.jpg", alt: "Cinque Terre", class: "image-size", style: "width:100%", onclick: "onClick(this)", class: "w3-hover-opacity" %>
-            </div>
-            <div class="w3-col l3 m6">
-              <%= image_tag "baking_bread.jpg", alt: "Cinque Terre", class: "image-size", style: "width:100%", onclick: "onClick(this)", class: "w3-hover-opacity" %>
-            </div>
-            <div class="w3-col l3 m6">
-              <%# <%= form_for @restaurant do |f| %>
-                <%# <%= f.label :restaurant_photo %>
-                <%# <%= f.file_field :restaurant_photo %>
-                <%# <%= f.submit class: "ui basic button" %>
-              <%# <% end %>
-              <%= image_tag @restaurant.restaurant_photo.to_s, class: "image-size", style: "width: 100%", onclick: "onClick(this)", class: "w3-hover-opacity"%>
-            </div>
-          </div>
+<div class="w3-row">
+  <div class="w3-container w3-quarter">
+    <div class="ui raised card">
+      <div class="content">
+        <div class="header">Love this place!</div>
+        <div class="meta">
+          <span class="category">The best!
+            <p><%= image_tag "star.png"%>
+            <%= image_tag "star.png"%>
+            <%= image_tag "star.png"%>
+            <%= image_tag "star.png"%>
+            <%= image_tag "star.png"%></p>
+          </span>
+        </div>
+        <div class="description">
+          <p></p>
         </div>
       </div>
-      <!-- /.row -->
+      <div class="extra content">
+        <div class="right floated author">
+          <img class="ui avatar image" src="https://image.ibb.co/nQH1pf/Screen-Shot-2018-11-16-at-11-15-54-AM.png">
+          Jeffery.H
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="w3-container w3-quarter">
+    <div class="ui raised card">
+      <div class="content">
+        <div class="header">Food is soooo good</div>
+        <div class="meta">
+          <span class="category">Will be back soon!
+            <p><%= image_tag "star.png"%>
+            <%= image_tag "star.png"%>
+            <%= image_tag "star.png"%>
+            <%= image_tag "star.png"%>
+            <%= image_tag "star.png"%></p></span>
+        </div>
+        <div class="description">
+          <p></p>
+        </div>
+      </div>
+      <div class="extra content">
+        <div class="right floated author">
+          <img class="ui avatar image" src="https://image.ibb.co/gc6GN0/Screen-Shot-2018-11-16-at-11-15-35-AM.png">
+          Laura.K
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="w3-container w3-quarter">
+    <div class="ui raised card">
+      <div class="content">
+        <div class="header">Ma Boiiiiiii</div>
+        <div class="meta">
+          <span class="category">Show ME DUH $$$$$
+            <p><%= image_tag "star.png"%>
+            <%= image_tag "star.png"%>
+            <%= image_tag "star.png"%>
+            <%= image_tag "star.png"%>
+            <%= image_tag "star.png"%></p></span>
+        </div>
+        <div class="description">
+          <p></p>
+        </div>
+      </div>
+      <div class="extra content">
+        <div class="right floated author">
+          <img class="ui avatar image" src="https://preview.ibb.co/jCU0FL/Screen-Shot-2018-11-16-at-11-16-10-AM.png">
+          Evans.W
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="w3-container w3-quarter">
+    <div class="ui raised card">
+      <div class="content">
+        <div class="header"></div>
+        <div class="meta">
+          <span class="category">
+            </span>
+        </div>
+        <div class="description">
+          <p></p>
+        </div>
+      </div>
+      <div class="extra content">
+        <div class="right floated author">
+          <img class="ui avatar image" src="/images/avatar/small/matt.jpg">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- /.row -->
+<hr>
+<div class="row">
+  <div class="w3-container">
+    <div class="w3-row-padding">
+      <% @restaurant.photos.each do |photo| %>
+        <div class="w3-col l3 m6">
+          <%= image_tag photo.url , alt: "Something Broke noooooo",  width: 250, height: 190, onclick: "onClick(this)", class: "w3-hover-opacity"%>
+        </div>
+      <% end %>
 
     </div>
-    <!-- /.container -->
+
+  </div>
+</div>
+<!-- /.row -->
+
+</div>
+<!-- /.container -->
