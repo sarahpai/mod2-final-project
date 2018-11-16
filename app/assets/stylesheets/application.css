@@ -85,25 +85,30 @@
  #login-form {
    top: 10px;
  }
-/* 
+
  .w3-container {
    z-index: 3;
- } */
+ }
 
  #google-map {
-   width: 250px;
-   height: 250px;
+   /* width: 250px; */
+   /* height: 250px; */
  }
 
 #restaurant-form {
   float: right;
-  /* width: 40%; */
+  width: 40%;
   margin-right: 30px;
   width: 100%;
 }
 
 #restaurant-map {
-  /* float: center; */
-  width: 60%;
+  float: center;
+  width: 100%;
   margin-left: 250px;
+}
+
+#info-box {
+  padding: center;
+  margin-top: 64px;
 }
