@@ -29,18 +29,28 @@
           <%= f.text_area :comment %><br>
         </div>
         <div class="field">
-          <%= f.label :star %>
-          <%# <%= f.number_field :star, class: "ui star rating" %> %>
-          <%= f.label :star, :class => "ui star rating", :"data-rating" => 1 %>
+          <%= f.label 'Rating' %>
           <%= f.radio_button :star, 1 %>
-          <%= f.label :star, 2 %>
+          <%= image_tag "star.png", alt: "1"%><br>
           <%= f.radio_button :star, 2 %>
-          <%= f.label :star, 3 %>
+          <%= image_tag "star.png"%>
+          <%= image_tag "star.png", alt: "2"%><br>
           <%= f.radio_button :star, 3 %>
-          <%= f.label :star, 4 %>
+          <%= image_tag "star.png"%>
+          <%= image_tag "star.png"%>
+          <%= image_tag "star.png", alt: "3"%><br>
           <%= f.radio_button :star, 4 %>
-          <%= f.label :star, 5 %>
-          <%= f.radio_button :star, 5 %><br>
+          <%= image_tag "star.png"%>
+          <%= image_tag "star.png"%>
+          <%= image_tag "star.png"%>
+          <%= image_tag "star.png", alt: "4"%><br>
+          <%= f.radio_button :star, 5 %>
+          <%= image_tag "star.png"%>
+          <%= image_tag "star.png"%>
+          <%= image_tag "star.png"%>
+          <%= image_tag "star.png"%>
+          <%= image_tag "star.png", alt: "5"%>
+
         </div>
 
       </div>
