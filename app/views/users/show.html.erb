@@ -6,18 +6,21 @@
     <div class="w3-white w3-text-grey w3-card-4">
       <br>
       <br>
-      <br>
-      <br>
-      <br>
-      <br>
+
       <div class="w3-display-container">
         <div align="center">
-        <img class="ui small circular image" <%= image_tag(@user.profile_picture.thumb.to_s) %>
+        <img class="ui small circular image" src="https://image.ibb.co/ncdSC0/Screen-Shot-2018-11-16-at-12-41-08-PM.png"%>
         </div>
+        <br>
+        <br>
+        <br>
+
         <div class="w3-display-bottomleft w3-container w3-text-black">
-          <h2>Full Name</h2>
+          <h2><%= @user.full_name %></h2>
         </div>
       </div>
+      <br>
+      <br>
       <div class="w3-container">
         <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i><%= @user.user_name %></p>
         <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i><%= @user.location %></p>
@@ -25,30 +28,21 @@
         <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i><%= @user.phone %></p>
         <%= link_to "edit profile", edit_user_path(@user), class: "mini ui teal basic button" %>
         <br>
-        
+        <br>
+
         <%= form_for @user do |f| %>
           <%= f.file_field :profile_picture %>
           <%= f.submit 'Upload Profile Picture', class: "mini ui teal basic button" %>
         <% end %>
         <hr>
 
-
-        <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Reviews</b></p>
-        <% @user.reviews.each do |review|  %>
-        <p><%= link_to review.restaurant.name, restaurant_path(review.restaurant) %></p>
-        <%= review.title %>
-        <%= link_to 'Edit', edit_review_path(review), class: "mini ui teal basic button"  %>
-        <%= link_to 'Delete', review_path(review), method: :delete, data: {confirm: "Are you sure you want to delete this review?"}, class: "mini ui teal basic button"  %>
-<br>
-<br>
         <div class="w3-light-grey w3-round-xlarge">
           <div class="w3-round-xlarge w3-teal" style="height:5px;width:100%"></div>
         </div>
 
-        <% end %>
         <br>
       </div>
-    </div><br>
+    </div>
   </div>
   <div class="w3-container w3-threequarter">
     <div class="w3-container w3-card w3-white w3-margin-bottom">
@@ -58,7 +52,21 @@
         <h5 class="w3-opacity"><b><%= link_to reservation.restaurant.name, restaurant_path(reservation.restaurant)%></b></h5>
         <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i><%= reservation.split_date %> @ <%= reservation.split_time %> For <%= reservation.party_size %> People</h6>
          <%= link_to "Edit", edit_reservation_path(reservation), class: "mini ui teal basic button" %>
-         <%= link_to 'Delete', reservation_path(reservation), method: :delete, data: {confirm: "Are you sure you want to delete this review?"}, class: "mini ui teal basic button" %>
+         <%= link_to 'Delete', reservation_path(reservation), method: :delete, data: {confirm: "Are you sure you want to delete this reservation?"}, class: "mini ui teal basic button" %>
+        <hr>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="w3-container w3-threequarter">
+    <div class="w3-container w3-card w3-white w3-margin-bottom">
+      <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Reviews</h2>
+      <% @user.reviews.each do |review|  %>
+      <div class="w3-container">
+        <h5 class="w3-opacity"><b><%= link_to review.restaurant.name, restaurant_path(review.restaurant) %></b></h5>
+        <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i><%= review.title %></h6>
+         <%= link_to "Edit", edit_review_path(review), class: "mini ui teal basic button" %>
+         <%= link_to 'Delete', review_path(review), method: :delete, data: {confirm: "Are you sure you want to delete this review?"}, class: "mini ui teal basic button" %>
         <hr>
       </div>
       <% end %>
