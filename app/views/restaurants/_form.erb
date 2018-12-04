@@ -4,19 +4,61 @@
   <% end %>
 <% end %>
 
-<%= form_for @restaurant do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name %><br>
-<%= f.label :address %>
-<%= f.text_field :address %><br>
-<%= f.label :phone %>
-<%= f.text_field :phone %><br>
-<%= f.label :credit_card %>
-<%= f.check_box :credit_card %><br>
-<%= f.label :delivery %>
-<%= f.check_box :delivery %><br>
-<%= f.label :restaurant_photo, "Photo" %><br>
-<%= f.file_field :restaurant_photo %><br>
-<%= f.submit %>
-<% end %>
 <%= render 'shared/errors', object: @restaurant %>
+
+
+<div class="review_back_image">
+  <div class="ui grid">
+    <div class="twelve wide column">
+    </div>
+    <div class="twelve wide column">
+    </div>
+    <div class="four wide column">
+      <div class="review_form">
+      <h2 class="ui teal image header">
+        <div class="content">
+          Create a new restaurant
+        </div>
+      </h2>
+      <% if flash[:errors] %>
+        <% flash[:errors].each do |error| %>
+          <p><%= error %></p>
+        <% end %>
+      <% end %>
+      <%= form_for @restaurant, :html => {:class => 'ui form'} do |f| %>
+      <div class="ui stacked element">
+        <%= f.hidden_field :restaurant_id, :value => @restaurant.id %>
+        <%= f.hidden_field :user_id, :value => current_user.id %>
+        <div class="field">
+          <%= f.label :name %>
+          <%= f.text_field :name %><br>
+        </div>
+        <div class="field">
+          <%= f.label :address %>
+          <%= f.text_area :address %><br>
+        </div>
+        <div class="field">
+          <%= f.label :phone %>
+          <%= f.text_field :phone %><br>
+        </div>
+        <div class="field">
+          <%= f.label :credit_card %>
+          <%= f.check_box :credit_card %><br>
+        </div>
+        <div class="field">
+          <%= f.label :delivery %>
+          <%= f.check_box :delivery %><br>
+        </div>
+        <div class="field">
+          <%= f.label :restaurant_photo, "Restaurant Photo" %><br>
+          <%= f.file_field :restaurant_photo %><br>
+      </div>
+      <br>
+      <%= f.submit 'Submit', :class => 'ui fluid large teal submit button' %>
+      <br>
+    <% end %>
+  </div>
+</div>
+</div>
+
+<!-- <p><%= flash[:notice] %></p> -->
