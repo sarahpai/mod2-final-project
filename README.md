@@ -1,24 +1,27 @@
-# README
+# YelpNTable App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Making reservations to the hottest restaurants in New York is just as easy as writing an awesome review!
 
-Things you may want to cover:
+## User Story
+* As a user, I will be able to
+	* login/logout/signup
+	* see all the restaurants 
+	* add and edit profile picture 
+  * edit profile information
+	* create and edit reservations
+	* create and edit reviews
+  * see google map location of the restaurant
+  
+---
 
-* Ruby version
+## Resources
+	* Ruby on Rails
+	* Google maps API
 
-* System dependencies
+* Styling
+	* Bootstrap
 
-* Configuration
+---
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Demo
+[Demo Link](https://youtu.be/O967-J5qUl4)
