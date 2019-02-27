@@ -15,6 +15,7 @@ Making reservations to the hottest restaurants in New York is just as easy as wr
 ---
 
 ## Resources
+*
 	* Ruby on Rails
 	* Google maps API
 
@@ -25,3 +26,9 @@ Making reservations to the hottest restaurants in New York is just as easy as wr
 
 ## Demo
 [Demo Link](https://youtu.be/O967-J5qUl4)
+
+
+## Instructions
+1. Bundle install
+2. Run rails server 
+3. Signup to access capability to edit and review restaurant
